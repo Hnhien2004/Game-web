@@ -546,6 +546,74 @@
       cursor: pointer;
     }
     .pad-btn:active { background: #334155; }
+    #mobile-tank-fire-btn {
+      display: none;
+      position: fixed;
+      right: 18px;
+      bottom: 86px;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 2.5px solid #fde047;
+      background: radial-gradient(circle at 32% 30%, #fb7185 0%, #dc2626 55%, #7f1d1d 100%);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.4px;
+      box-shadow: 0 8px 22px rgba(220, 38, 38, 0.55), inset 0 2px 6px rgba(255, 255, 255, 0.35);
+      z-index: 32;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+    #mobile-tank-fire-btn:active {
+      transform: scale(0.92);
+      filter: brightness(1.12);
+    }
+    @media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+      #mobile-tank-fire-btn {
+        display: none !important;
+      }
+    }
+    #mobile-moto-wheelie-btn {
+      display: none;
+      position: fixed;
+      right: 18px;
+      bottom: 164px;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 2.5px solid #fde047;
+      background: radial-gradient(circle at 32% 30%, #fb7185 0%, #e11d48 58%, #881337 100%);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.3px;
+      box-shadow: 0 8px 22px rgba(225, 29, 72, 0.55), inset 0 2px 6px rgba(255, 255, 255, 0.35);
+      z-index: 32;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      cursor: pointer;
+    }
+    #mobile-moto-wheelie-btn:active {
+      transform: scale(0.92);
+      filter: brightness(1.12);
+    }
+    @media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+      #mobile-moto-wheelie-btn {
+        display: none !important;
+      }
+    }
     #leaderboard-modal {
       position: fixed;
       inset: 0;
@@ -924,6 +992,14 @@
       <button type="button" class="pad-btn" id="btn-slide">▼ Trượt</button>
       <button type="button" class="pad-btn" id="btn-right">Phải ▶</button>
     </div>
+    <button type="button" id="mobile-tank-fire-btn" aria-label="Bắn Xe tăng bá khí">
+      <span style="font-size:18px;line-height:1;">🔥</span>
+      <span>BẮN</span>
+    </button>
+    <button type="button" id="mobile-moto-wheelie-btn" aria-label="Bốc đầu Mô-tô bá khí">
+      <span style="font-size:18px;line-height:1;">🏍️</span>
+      <span>BỐC ĐẦU</span>
+    </button>
   </div>
 
     <!-- Modal Bảng xếp hạng -->
@@ -1009,6 +1085,51 @@
 
     const MALE_OUTFITS = [
       {
+        id: "luc_quan",
+        price: 0,
+        name: "Lục Quân",
+        desc: "Quân phục dã chiến Lục Quân rằn ri chuẩn ảnh: áo & ống tay rằn ri xanh rêu — nâu đất — đen sẫm, cầu vai đỏ viền vàng có sao/vạch, quần rằn ri đồng bộ và mũ cối/chống đạn xanh lá gắn sao vàng nền đỏ.",
+        shirt: "#4e6632",
+        sleeve: "#4e6632",
+        pants: "#384a24",
+        shortsColor: "#384a24",
+        shortsStripe: "#eab308",
+        shortsAccent: "#182412",
+        hat: "#2e7d32",
+        kitType: "luc_quan",
+        playerName: "LỤC QUÂN"
+      },
+      {
+        id: "quan_doi_nhan_dan",
+        price: 0,
+        name: "Quân Đội Nhân Dân",
+        desc: "Lễ phục Quân đội Nhân dân Việt Nam chuẩn chỉnh: mũ kê-pi xanh rêu sẫm viền đỏ & dây vàng kim, áo gập cúc vàng hai hàng/nẹp cúc vàng, cầu vai đỏ viền vàng, 4 túi có nắp cài cúc vàng và quần dài xanh rêu đồng bộ.",
+        shirt: "#2d4f38",
+        sleeve: "#2d4f38",
+        pants: "#25422e",
+        shortsColor: "#25422e",
+        shortsStripe: "#eab308",
+        shortsAccent: "#182c1e",
+        hat: "#2d4f38",
+        kitType: "quan_doi_nhan_dan",
+        playerName: "QĐND"
+      },
+      {
+        id: "dan_quan",
+        price: 0,
+        name: "Dân Quân",
+        desc: "Quân phục Dân quân tự vệ màu xanh dương chuẩn chỉnh: mũ lưỡi trai xanh dương gắn sao vàng nền đỏ viền vàng thoi, áo sơ mi cổ bẻ hai túi ngực có nắp cài cúc, cầu vai, quần dài đồng bộ và vác súng AK-47 sau lưng.",
+        shirt: "#00b8f0",
+        sleeve: "#00b8f0",
+        pants: "#0084b0",
+        shortsColor: "#0084b0",
+        shortsStripe: "#facc15",
+        shortsAccent: "#005270",
+        hat: "#00b8f0",
+        kitType: "dan_quan",
+        playerName: "DÂN QUÂN"
+      },
+      {
         id: "vietnam_flag",
         price: 0,
         name: "Việt Nam — Áo Đỏ Sao Vàng",
@@ -1088,6 +1209,51 @@
     ];
 
     const FEMALE_OUTFITS = [
+      {
+        id: "luc_quan",
+        price: 0,
+        name: "Lục Quân",
+        desc: "Quân phục dã chiến Lục Quân rằn ri chuẩn ảnh: áo & ống tay rằn ri xanh rêu — nâu đất — đen sẫm, cầu vai đỏ viền vàng có sao/vạch, quần rằn ri đồng bộ và mũ cối/chống đạn xanh lá gắn sao vàng nền đỏ.",
+        shirt: "#4e6632",
+        sleeve: "#4e6632",
+        pants: "#384a24",
+        shortsColor: "#384a24",
+        shortsStripe: "#eab308",
+        shortsAccent: "#182412",
+        hat: "#2e7d32",
+        kitType: "luc_quan",
+        playerName: "LỤC QUÂN"
+      },
+      {
+        id: "quan_doi_nhan_dan",
+        price: 0,
+        name: "Quân Đội Nhân Dân",
+        desc: "Lễ phục Quân đội Nhân dân Việt Nam chuẩn chỉnh: mũ kê-pi xanh rêu sẫm viền đỏ & dây vàng kim, áo gập cúc vàng, cầu vai đỏ viền vàng, 4 túi có nắp cài cúc vàng và quần dài xanh rêu đồng bộ.",
+        shirt: "#2d4f38",
+        sleeve: "#2d4f38",
+        pants: "#25422e",
+        shortsColor: "#25422e",
+        shortsStripe: "#eab308",
+        shortsAccent: "#182c1e",
+        hat: "#2d4f38",
+        kitType: "quan_doi_nhan_dan",
+        playerName: "QĐND"
+      },
+      {
+        id: "dan_quan",
+        price: 0,
+        name: "Dân Quân",
+        desc: "Quân phục Dân quân tự vệ màu xanh dương chuẩn chỉnh: mũ lưỡi trai xanh dương gắn sao vàng nền đỏ viền vàng thoi, áo sơ mi cổ bẻ hai túi ngực có nắp cài cúc, cầu vai, quần dài đồng bộ và vác súng AK-47 sau lưng.",
+        shirt: "#00b8f0",
+        sleeve: "#00b8f0",
+        pants: "#0084b0",
+        shortsColor: "#0084b0",
+        shortsStripe: "#facc15",
+        shortsAccent: "#005270",
+        hat: "#00b8f0",
+        kitType: "dan_quan",
+        playerName: "DÂN QUÂN"
+      },
       {
         id: "vietnam_flag",
         price: 0,
@@ -1177,7 +1343,7 @@
     ];
 
     let walletCoins = 0;
-    let ownedOutfits = ["vietnam_flag", "default_kit", "street_green"];
+    let ownedOutfits = ["luc_quan", "quan_doi_nhan_dan", "vietnam_flag", "dan_quan", "default_kit", "street_green"];
     let equippedOutfit = "vietnam_flag";
     let equippedMaleOutfit = "vietnam_flag";
     let equippedFemaleOutfit = "vietnam_flag";
@@ -1198,12 +1364,12 @@
     try {
       walletCoins = Math.max(0, Number(localStorage.getItem("subway_dash_wallet") || 0));
       const migratedPaidKits = localStorage.getItem("subway_dash_paid_kits_reset_v1") === "1";
-      let po = JSON.parse(localStorage.getItem("subway_dash_owned_outfits") || '["vietnam_flag","default_kit","street_green"]');
+      let po = JSON.parse(localStorage.getItem("subway_dash_owned_outfits") || '["luc_quan","quan_doi_nhan_dan","vietnam_flag","dan_quan","default_kit","street_green"]');
       if (!migratedPaidKits && Array.isArray(po)) {
         po = po.filter((x) => x !== "cr7_mu" && x !== "messi_barca" && x !== "neymar_brazil");
         localStorage.setItem("subway_dash_paid_kits_reset_v1", "1");
       }
-      if (Array.isArray(po) && po.length) ownedOutfits = Array.from(new Set(["vietnam_flag", "default_kit", "street_green", ...po.map(normalizeOutfitId)]));
+      if (Array.isArray(po) && po.length) ownedOutfits = Array.from(new Set(["luc_quan", "quan_doi_nhan_dan", "vietnam_flag", "dan_quan", "default_kit", "street_green", ...po.map(normalizeOutfitId)]));
       const savedMaleEq = localStorage.getItem("subway_dash_equipped_male_outfit");
       const savedFemaleEq = localStorage.getItem("subway_dash_equipped_female_outfit");
       if (savedMaleEq && MALE_OUTFITS.some((x) => x.id === savedMaleEq)) {
@@ -1304,7 +1470,9 @@
         const displayName = v.name || item.name;
         const displayDesc = v.desc || item.desc;
         const swatchBg = activeShopTab === "outfit"
-          ? (item.id === "vietnam_flag"
+          ? (item.id === "dan_quan"
+              ? "linear-gradient(135deg, #00b8f0 0%, #0084b0 66%, #dc2626 66%, #dc2626 83%, #facc15 83%, #facc15 100%)"
+              : item.id === "vietnam_flag"
               ? "linear-gradient(135deg, #da251d 0%, #b91c1c 64%, #ffcd00 64%, #eab308 100%)"
               : (item.id === "default_kit"
                   ? "linear-gradient(135deg, #2563eb 65%, #1e293b 65%)"
@@ -1719,69 +1887,201 @@
       }
     }
 
-    // Punchy, raspy "Racing Boy" exhaust note: throaty low-end bark + crisp mid-high exhaust crack/pop
-    function playMotoExhaustRevSfx(boostScale = 1.0) {
+    let motoExhaustVoiceEndsAt = [];
+    let lastMotoRevTriggeredAtMs = 0;
+    let motoBusCache = null;
+
+    function getMotoExhaustBus(ctx) {
+      if (!ctx) return null;
+      if (motoBusCache && motoBusCache.ctx === ctx) return motoBusCache;
+      try {
+        const comp = ctx.createDynamicsCompressor();
+        comp.threshold.setValueAtTime(-18, ctx.currentTime);
+        comp.knee.setValueAtTime(20, ctx.currentTime);
+        comp.ratio.setValueAtTime(5, ctx.currentTime);
+        comp.attack.setValueAtTime(0.012, ctx.currentTime);
+        comp.release.setValueAtTime(0.18, ctx.currentTime);
+
+        const masterGain = ctx.createGain();
+        masterGain.gain.setValueAtTime(0.82, ctx.currentTime);
+
+        comp.connect(masterGain);
+        masterGain.connect(ctx.destination);
+        motoBusCache = { ctx, input: comp, masterGain };
+        return motoBusCache;
+      } catch (_) {
+        return { ctx, input: ctx.destination, masterGain: null };
+      }
+    }
+
+    // Warm, chesty, muscular exhaust note: deep sub-bass body + round low-mid growl (extra punch on wheelie)
+    function playMotoExhaustRevSfx(boostScale = 1.0, isWheelie = false, isMobile = false, allowLaneBlip = false) {
       const ctx = ensureSfxCtx();
       if (!ctx) return;
       try {
+        const nowMs = performance.now();
+        motoExhaustVoiceEndsAt = motoExhaustVoiceEndsAt.filter((t) => t > nowMs);
+        // Prevent overlapping bursts or audio congestion on mobile when holding wheelie, while allowing immediate lane-swerve exhaust blips
+        const minGapMs = allowLaneBlip ? 125 : (isMobile ? 265 : 230);
+        const maxVoices = allowLaneBlip ? 3 : 2;
+        if (nowMs - lastMotoRevTriggeredAtMs < minGapMs || motoExhaustVoiceEndsAt.length >= maxVoices) {
+          return;
+        }
+        lastMotoRevTriggeredAtMs = nowMs;
+
+        const bus = getMotoExhaustBus(ctx);
+        const dest = (bus && bus.input) ? bus.input : ctx.destination;
         const now = ctx.currentTime;
-        const scale = Math.max(0.85, Math.min(1.55, boostScale));
+        const scale = Math.max(0.88, Math.min(1.38, boostScale));
 
-        const lp = ctx.createBiquadFilter();
-        lp.type = "lowpass";
-        lp.frequency.setValueAtTime(520 * scale, now);
-        lp.frequency.exponentialRampToValueAtTime(1950 * Math.min(1.45, scale), now + 0.08);
-        lp.frequency.exponentialRampToValueAtTime(340, now + 0.25);
-        lp.Q.setValueAtTime(3.6, now);
-        lp.connect(ctx.destination);
+        if (!isMobile) {
+          // PC path: keep warm, punchy low-end exhaust note intact
+          const wheelieMult = isWheelie ? 1.25 : 1.0;
+          const warmLp = ctx.createBiquadFilter();
+          warmLp.type = "lowpass";
+          warmLp.frequency.setValueAtTime((isWheelie ? 370 : 295) * scale, now);
+          warmLp.frequency.exponentialRampToValueAtTime((isWheelie ? 720 : 500) * scale, now + 0.085);
+          warmLp.frequency.exponentialRampToValueAtTime(isWheelie ? 240 : 205, now + 0.27);
+          warmLp.Q.setValueAtTime(isWheelie ? 2.0 : 1.5, now);
+          warmLp.connect(dest);
 
-        const bp = ctx.createBiquadFilter();
-        bp.type = "bandpass";
-        bp.frequency.setValueAtTime(780 * scale, now);
-        bp.Q.setValueAtTime(2.2, now);
-        bp.connect(ctx.destination);
+          const chestShelf = ctx.createBiquadFilter();
+          chestShelf.type = "lowshelf";
+          chestShelf.frequency.setValueAtTime(135, now);
+          chestShelf.gain.setValueAtTime(isWheelie ? 8.2 : 5.2, now);
+          chestShelf.connect(warmLp);
 
-        // 3 rapid racing-boy exhaust pulses ("tèn-tèn-bụp")
-        const hits = [
-          { off: 0.00, f0: 108, f1: 58, dur: 0.085, gain: 0.135 },
-          { off: 0.068, f0: 138, f1: 72, dur: 0.085, gain: 0.145 },
-          { off: 0.136, f0: 168, f1: 64, dur: 0.115, gain: 0.155 }
-        ];
+          const shaper = ctx.createWaveShaper();
+          const curveLen = 256;
+          const curve = new Float32Array(curveLen);
+          const drive = isWheelie ? 2.0 : 1.45;
+          for (let i = 0; i < curveLen; i++) {
+            const x = (i * 2) / curveLen - 1;
+            curve[i] = Math.tanh(x * drive);
+          }
+          shaper.curve = curve;
+          shaper.oversample = "2x";
+          shaper.connect(chestShelf);
 
-        hits.forEach((h, idx) => {
-          const t0 = now + h.off;
+          const subOsc = ctx.createOscillator();
+          const subGain = ctx.createGain();
+          subOsc.type = "sine";
+          const totalDur = isWheelie ? 0.27 : 0.22;
+          subOsc.frequency.setValueAtTime((isWheelie ? 76 : 65) * Math.min(1.15, scale), now);
+          subOsc.frequency.exponentialRampToValueAtTime(isWheelie ? 38 : 42, now + totalDur);
+          subGain.gain.setValueAtTime(0.0005, now);
+          subGain.gain.linearRampToValueAtTime(isWheelie ? 0.19 : 0.13, now + 0.018);
+          subGain.gain.exponentialRampToValueAtTime(0.0005, now + totalDur);
+          subOsc.connect(subGain);
+          subGain.connect(warmLp);
+          subOsc.start(now);
+          subOsc.stop(now + totalDur + 0.012);
+
+          const pulses = isWheelie
+            ? [
+                { off: 0.00, f0: 84, f1: 48, dur: 0.125, gain: 0.175, type: "triangle" },
+                { off: 0.085, f0: 106, f1: 52, dur: 0.145, gain: 0.19, type: "sawtooth" },
+                { off: 0.175, f0: 94, f1: 44, dur: 0.135, gain: 0.165, type: "triangle" }
+              ]
+            : [
+                { off: 0.00, f0: 76, f1: 48, dur: 0.105, gain: 0.115, type: "triangle" },
+                { off: 0.085, f0: 92, f1: 52, dur: 0.125, gain: 0.125, type: "sawtooth" }
+              ];
+
+          pulses.forEach((p) => {
+            const t0 = now + p.off;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = p.type;
+            osc.frequency.setValueAtTime(p.f0 * scale, t0);
+            osc.frequency.exponentialRampToValueAtTime(p.f1 * Math.min(1.18, scale), t0 + p.dur);
+            gain.gain.setValueAtTime(0.0005, t0);
+            gain.gain.linearRampToValueAtTime(Math.min(0.24, p.gain * wheelieMult * 0.75), t0 + 0.018);
+            gain.gain.exponentialRampToValueAtTime(0.0005, t0 + p.dur);
+            osc.connect(gain);
+            gain.connect(shaper);
+            osc.start(t0);
+            osc.stop(t0 + p.dur + 0.015);
+          });
+
+          motoExhaustVoiceEndsAt.push(nowMs + (totalDur + 0.04) * 1000);
+          return;
+        }
+
+        // Mobile path: punchy, warm, muscular exhaust tuned for real weight & clarity on phone speakers
+        const totalDur = isWheelie ? 0.28 : 0.22;
+        const mobileOut = ctx.createGain();
+        mobileOut.gain.setValueAtTime(isWheelie ? 1.55 : 1.18, now);
+        mobileOut.connect(ctx.destination);
+
+        const warmLp = ctx.createBiquadFilter();
+        warmLp.type = "lowpass";
+        warmLp.frequency.setValueAtTime((isWheelie ? 620 : 360) * scale, now);
+        warmLp.frequency.exponentialRampToValueAtTime((isWheelie ? 1240 : 580) * scale, now + 0.065);
+        warmLp.frequency.exponentialRampToValueAtTime(isWheelie ? 310 : 220, now + totalDur);
+        warmLp.Q.setValueAtTime(isWheelie ? 2.4 : 1.5, now);
+        warmLp.connect(mobileOut);
+
+        const chestShelf = ctx.createBiquadFilter();
+        chestShelf.type = "lowshelf";
+        chestShelf.frequency.setValueAtTime(185, now);
+        chestShelf.gain.setValueAtTime(isWheelie ? 11.5 : 6.8, now);
+        chestShelf.connect(warmLp);
+
+        const shaper = ctx.createWaveShaper();
+        const curveLen = 256;
+        const curve = new Float32Array(curveLen);
+        const drive = isWheelie ? 2.45 : 1.5;
+        for (let i = 0; i < curveLen; i++) {
+          const x = (i * 2) / curveLen - 1;
+          curve[i] = Math.tanh(x * drive);
+        }
+        shaper.curve = curve;
+        shaper.oversample = "none";
+        shaper.connect(chestShelf);
+
+        // Punchy low-end thump wave for wheelie launch weight
+        const thumpOsc = ctx.createOscillator();
+        const thumpGain = ctx.createGain();
+        thumpOsc.type = "sine";
+        thumpOsc.frequency.setValueAtTime((isWheelie ? 104 : 84) * Math.min(1.18, scale), now);
+        thumpOsc.frequency.exponentialRampToValueAtTime(isWheelie ? 52 : 48, now + totalDur);
+        thumpGain.gain.setValueAtTime(0.001, now);
+        thumpGain.gain.linearRampToValueAtTime(isWheelie ? 0.34 : 0.18, now + 0.012);
+        thumpGain.gain.exponentialRampToValueAtTime(0.001, now + totalDur);
+        thumpOsc.connect(thumpGain);
+        thumpGain.connect(warmLp);
+        thumpOsc.start(now);
+        thumpOsc.stop(now + totalDur + 0.015);
+
+        // Muscular wheelie rev pulses with crisp punch ("bùm - rừm - bụp")
+        const mobilePulses = isWheelie
+          ? [
+              { off: 0.00, f0: 116, f1: 64, dur: 0.115, gain: 0.27, type: "triangle" },
+              { off: 0.082, f0: 148, f1: 72, dur: 0.135, gain: 0.29, type: "sawtooth" },
+              { off: 0.168, f0: 128, f1: 58, dur: 0.125, gain: 0.25, type: "sawtooth" }
+            ]
+          : [
+              { off: 0.00, f0: 94, f1: 56, dur: 0.12, gain: 0.16, type: "triangle" }
+            ];
+
+        mobilePulses.forEach((p) => {
+          const t0 = now + p.off;
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
-          osc.type = idx === 1 ? "square" : "sawtooth";
-          osc.frequency.setValueAtTime(h.f0 * scale, t0);
-          osc.frequency.exponentialRampToValueAtTime(h.f1 * Math.min(1.3, scale), t0 + h.dur);
-
+          osc.type = p.type;
+          osc.frequency.setValueAtTime(p.f0 * scale, t0);
+          osc.frequency.exponentialRampToValueAtTime(p.f1 * Math.min(1.2, scale), t0 + p.dur);
           gain.gain.setValueAtTime(0.001, t0);
-          gain.gain.linearRampToValueAtTime(h.gain, t0 + 0.012);
-          gain.gain.exponentialRampToValueAtTime(0.001, t0 + h.dur);
-
+          gain.gain.linearRampToValueAtTime(p.gain, t0 + 0.012);
+          gain.gain.exponentialRampToValueAtTime(0.001, t0 + p.dur);
           osc.connect(gain);
-          gain.connect(lp);
-          gain.connect(bp);
+          gain.connect(shaper);
           osc.start(t0);
-          osc.stop(t0 + h.dur + 0.01);
+          osc.stop(t0 + p.dur + 0.015);
         });
 
-        // Sharp racing exhaust pop/crackle at the end of rev
-        const popOsc = ctx.createOscillator();
-        const popGain = ctx.createGain();
-        popOsc.type = "square";
-        popOsc.frequency.setValueAtTime(640 * scale, now + 0.18);
-        popOsc.frequency.exponentialRampToValueAtTime(140, now + 0.25);
-
-        popGain.gain.setValueAtTime(0.001, now + 0.18);
-        popGain.gain.linearRampToValueAtTime(0.075, now + 0.186);
-        popGain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-
-        popOsc.connect(popGain);
-        popGain.connect(ctx.destination);
-        popOsc.start(now + 0.18);
-        popOsc.stop(now + 0.26);
+        motoExhaustVoiceEndsAt.push(nowMs + (totalDur + 0.05) * 1000);
       } catch (_) {}
     }
 
@@ -1988,9 +2288,7 @@
       if (buffs.moto > 0 && nowMs - lastMotoChugAt >= 360) {
         lastMotoChugAt = nowMs;
         playMotoExhaustRevSfx(1.15);
-      } else if (buffs.tank > 0 && nowMs - lastTankPulseAt >= 680) {
-        lastTankPulseAt = nowMs;
-        playTankLaserSfx();
+
       } else if (buffs.jetpack > 0 && nowMs - lastJetpackHumAt >= 250) {
         lastJetpackHumAt = nowMs;
         playJetpackThrustSfx(false);
@@ -2219,241 +2517,11 @@
     
     const VIETNAM_HOMELAND_THEMES = [
       {
-        id: "rice_paddy_sun",
-        label: "Cánh Đồng Lúa Chín & Núi Non",
-        sky: 0x38bdf8,
-        fog: 0xbae6fd,
-        fogDensity: 0.0085,
-        ground: 0x4d7c0f,
-        ballast: 0x57534e,
-        hemiSky: 0xbae6fd,
-        hemiGround: 0x65a30d,
-        hemiIntensity: 1.05,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.5,
-        paddyA: 0x84cc16,
-        paddyB: 0xeab308,
-        pondColor: 0x0284c7,
-        mountainColor: 0x15803d,
-        roofColor: 0xb91c1c,
-        wallColor: 0xfef3c7,
-        blossomColor: 0xfacc15,
-        lanternA: 0xef4444,
-        lanternB: 0xfacc15
-      },
-      {
-        id: "halong_coastal",
-        label: "Vịnh Biển & Đảo Xanh Quê Hương",
-        sky: 0x0ea5e9,
-        fog: 0x7dd3fc,
-        fogDensity: 0.0082,
-        ground: 0x0284c7,
-        ballast: 0x475569,
-        hemiSky: 0xe0f2fe,
-        hemiGround: 0x0369a1,
-        hemiIntensity: 1.08,
-        dirColor: 0xffffff,
-        dirIntensity: 1.55,
-        paddyA: 0x38bdf8,
-        paddyB: 0xfde68a,
-        pondColor: 0x0369a1,
-        mountainColor: 0x0f766e,
-        roofColor: 0xc2410c,
-        wallColor: 0xfffbeb,
-        blossomColor: 0xfde047,
-        lanternA: 0xf59e0b,
-        lanternB: 0x38bdf8
-      },
-      {
-        id: "lantern_village",
-        label: "Làng Quê Lồng Đèn & Mái Ngói",
-        sky: 0x38bdf8,
-        fog: 0xbae6fd,
-        fogDensity: 0.0078,
-        ground: 0x3f6212,
-        ballast: 0x57534e,
-        hemiSky: 0xe0f2fe,
-        hemiGround: 0x65a30d,
-        hemiIntensity: 1.15,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.55,
-        paddyA: 0x84cc16,
-        paddyB: 0xeab308,
-        pondColor: 0x0284c7,
-        mountainColor: 0x15803d,
-        roofColor: 0xb91c1c,
-        wallColor: 0xfef3c7,
-        blossomColor: 0xfbbf24,
-        lanternA: 0xef4444,
-        lanternB: 0xfacc15
-      },
-      {
-        id: "floating_raft_bay",
-        label: "Làng Chài Bè Cá & Núi Đá Vôi",
-        sky: 0x38bdf8,
-        fog: 0xbae6fd,
-        fogDensity: 0.0082,
-        ground: 0x0f766e,
-        ballast: 0x475569,
-        hemiSky: 0xe0f2fe,
-        hemiGround: 0x0d9488,
-        hemiIntensity: 1.1,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.55,
-        paddyA: 0x14b8a6,
-        paddyB: 0x0284c7,
-        pondColor: 0x0d9488,
-        mountainColor: 0x166534,
-        roofColor: 0xdc2626,
-        wallColor: 0xf8fafc,
-        blossomColor: 0x22c55e,
-        lanternA: 0xf59e0b,
-        lanternB: 0xef4444
-      },
-      {
-        id: "farmer_buffalo_paddy",
-        label: "Nông Dân, Con Trâu & Ruộng Lúa",
-        sky: 0x38bdf8,
-        fog: 0xdbeafe,
-        fogDensity: 0.0082,
-        ground: 0x4d7c0f,
-        ballast: 0x57534e,
-        hemiSky: 0xe0f2fe,
-        hemiGround: 0x65a30d,
-        hemiIntensity: 1.08,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.52,
-        paddyA: 0xeab308,
-        paddyB: 0x84cc16,
-        pondColor: 0x0284c7,
-        mountainColor: 0x15803d,
-        roofColor: 0xb91c1c,
-        wallColor: 0xfef9c3,
-        blossomColor: 0xfacc15,
-        lanternA: 0xef4444,
-        lanternB: 0xfacc15
-      },
-      {
-        id: "village_banyan_gate",
-        label: "Cổng Làng Cổ, Cây Đa & Ao Sen",
-        sky: 0x38bdf8,
-        fog: 0xe0f2fe,
-        fogDensity: 0.0082,
-        ground: 0x65a30d,
-        ballast: 0x57534e,
-        hemiSky: 0xf0f9ff,
-        hemiGround: 0x4d7c0f,
-        hemiIntensity: 1.12,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.56,
-        paddyA: 0xfacc15,
-        paddyB: 0x84cc16,
-        pondColor: 0x0284c7,
-        mountainColor: 0x166534,
-        roofColor: 0xb91c1c,
-        wallColor: 0xfef3c7,
-        blossomColor: 0xf472b6,
-        lanternA: 0xef4444,
-        lanternB: 0xfacc15
-      },
-      {
-        id: "karst_river_boats",
-        label: "Dòng Nước Ngọc, Vách Đá Vôi & Thuyền",
-        sky: 0x38bdf8,
-        fog: 0xcffafe,
-        fogDensity: 0.008,
-        ground: 0x0f766e,
-        ballast: 0x475569,
-        hemiSky: 0xe0f2fe,
-        hemiGround: 0x15803d,
-        hemiIntensity: 1.14,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.58,
-        paddyA: 0x0d9488,
-        paddyB: 0x10b981,
-        pondColor: 0x0d9488,
-        mountainColor: 0x15803d,
-        roofColor: 0xdc2626,
-        wallColor: 0xf8fafc,
-        blossomColor: 0x22c55e,
-        lanternA: 0xef4444,
-        lanternB: 0xfacc15
-      },
-      {
-        id: "border_soldiers_patrol",
-        label: "Chiến Sĩ Tuần Tra & Canh Gác Tổ Quốc",
-        sky: 0x38bdf8,
-        fog: 0xdbeafe,
-        fogDensity: 0.0082,
-        ground: 0x3f6212,
-        ballast: 0x57534e,
-        hemiSky: 0xe0f2fe,
-        hemiGround: 0x4d7c0f,
-        hemiIntensity: 1.12,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.56,
-        paddyA: 0x4d7c0f,
-        paddyB: 0x15803d,
-        pondColor: 0x0284c7,
-        mountainColor: 0x166534,
-        roofColor: 0xb91c1c,
-        wallColor: 0xe2e8f0,
-        blossomColor: 0x22c55e,
-        lanternA: 0xef4444,
-        lanternB: 0xfacc15
-      },
-      {
-        id: "ancestors_battlefield_epic",
-        label: "Trận Chiến Bảo Vệ Quê Hương & Cha Ông",
-        sky: 0x38bdf8,
-        fog: 0xe2e8f0,
-        fogDensity: 0.0082,
-        ground: 0x4d7c0f,
-        ballast: 0x57534e,
-        hemiSky: 0xe0f2fe,
-        hemiGround: 0x4d7c0f,
-        hemiIntensity: 1.12,
-        dirColor: 0xfffbeb,
-        dirIntensity: 1.56,
-        paddyA: 0x4d7c0f,
-        paddyB: 0x78716c,
-        pondColor: 0x0284c7,
-        mountainColor: 0x166534,
-        roofColor: 0xb91c1c,
-        wallColor: 0xd6d3d1,
-        blossomColor: 0xfacc15,
-        lanternA: 0xef4444,
-        lanternB: 0xfacc15
-      },
-      {
-        id: "spring_blossom",
-        label: "Quê Hương Hoa Mai & Hoa Đào",
-        sky: 0x60a5fa,
-        fog: 0xdbeafe,
-        fogDensity: 0.0085,
-        ground: 0x3f6212,
-        ballast: 0x57534e,
-        hemiSky: 0xeff6ff,
-        hemiGround: 0x4d7c0f,
-        hemiIntensity: 1.05,
-        dirColor: 0xfff7ed,
-        dirIntensity: 1.48,
-        paddyA: 0x65a30d,
-        paddyB: 0xfacc15,
-        pondColor: 0x0ea5e9,
-        mountainColor: 0x166534,
-        roofColor: 0xb91c1c,
-        wallColor: 0xfef9c3,
-        blossomColor: 0xf472b6,
-        lanternA: 0xf43f5e,
-        lanternB: 0xfacc15
-      },
-      {
         id: "vietnam_school_yard",
-        label: "Trường Học Việt Nam & Sân Trường Vui Chơi",
+        label: "Trường Học Việt Nam",
         sky: 0x38bdf8,
         fog: 0xe0f2fe,
-        fogDensity: 0.008,
+        fogDensity: 0.0078,
         ground: 0x65a30d,
         ballast: 0x57534e,
         hemiSky: 0xf0f9ff,
@@ -2464,7 +2532,7 @@
         paddyA: 0x84cc16,
         paddyB: 0x4d7c0f,
         pondColor: 0x0284c7,
-        mountainColor: 0x166534,
+        mountainColor: 0x22c55e,
         roofColor: 0xdc2626,
         wallColor: 0xfef3c7,
         blossomColor: 0x22c55e,
@@ -2472,24 +2540,116 @@
         lanternB: 0xfacc15
       },
       {
-        id: "saigon_night_city",
-        label: "Phố Thị Sáng Rực — Đèn Phố & Quán Nhộn Nhịp",
-        sky: 0x38bdf8,
+        id: "border_soldiers_patrol",
+        label: "Quân Đội Việt Nam",
+        sky: 0x0284c7,
         fog: 0xbae6fd,
-        fogDensity: 0.0078,
-        ground: 0x4d7c0f,
-        ballast: 0x57534e,
+        fogDensity: 0.0082,
+        ground: 0x3f6212,
+        ballast: 0x44403c,
         hemiSky: 0xe0f2fe,
-        hemiGround: 0x65a30d,
-        hemiIntensity: 1.15,
+        hemiGround: 0x4d7c0f,
+        hemiIntensity: 1.14,
         dirColor: 0xfffbeb,
-        dirIntensity: 1.55,
-        paddyA: 0x84cc16,
-        paddyB: 0xeab308,
+        dirIntensity: 1.56,
+        paddyA: 0x4d7c0f,
+        paddyB: 0x15803d,
+        pondColor: 0x0369a1,
+        mountainColor: 0x166534,
+        roofColor: 0xb91c1c,
+        wallColor: 0xd6d3d1,
+        blossomColor: 0x22c55e,
+        lanternA: 0xef4444,
+        lanternB: 0xfacc15
+      },
+      {
+        id: "farmer_buffalo_paddy",
+        label: "Nông Dân Đi Làm Ruộng Việt Nam",
+        sky: 0x60a5fa,
+        fog: 0xfef9c3,
+        fogDensity: 0.0080,
+        ground: 0xeab308,
+        ballast: 0x57534e,
+        hemiSky: 0xfefce8,
+        hemiGround: 0xca8a04,
+        hemiIntensity: 1.14,
+        dirColor: 0xfffbeb,
+        dirIntensity: 1.58,
+        paddyA: 0xeab308,
+        paddyB: 0x84cc16,
         pondColor: 0x0284c7,
-        mountainColor: 0x15803d,
-        roofColor: 0xea580c,
+        mountainColor: 0x4d7c0f,
+        roofColor: 0xb91c1c,
         wallColor: 0xfef3c7,
+        blossomColor: 0xfacc15,
+        lanternA: 0xf59e0b,
+        lanternB: 0xef4444
+      },
+      {
+        id: "floating_raft_bay",
+        label: "Những Ngôi Làng Chài Việt Nam",
+        sky: 0x0ea5e9,
+        fog: 0xcffafe,
+        fogDensity: 0.0080,
+        ground: 0x0284c7,
+        ballast: 0x475569,
+        hemiSky: 0xe0f2fe,
+        hemiGround: 0x0369a1,
+        hemiIntensity: 1.14,
+        dirColor: 0xffffff,
+        dirIntensity: 1.56,
+        paddyA: 0x14b8a6,
+        paddyB: 0x0284c7,
+        pondColor: 0x0d9488,
+        mountainColor: 0x0f766e,
+        roofColor: 0xdc2626,
+        wallColor: 0xf8fafc,
+        blossomColor: 0x22c55e,
+        lanternA: 0xf59e0b,
+        lanternB: 0xef4444
+      },
+      {
+        id: "spring_blossom",
+        label: "Thành Phố Đường Xá Việt Nam",
+        sky: 0x38bdf8,
+        fog: 0xe2e8f0,
+        fogDensity: 0.0076,
+        ground: 0x64748b,
+        ballast: 0x475569,
+        hemiSky: 0xf8fafc,
+        hemiGround: 0x94a3b8,
+        hemiIntensity: 1.16,
+        dirColor: 0xfffbeb,
+        dirIntensity: 1.58,
+        paddyA: 0x94a3b8,
+        paddyB: 0xfacc15,
+        pondColor: 0x0ea5e9,
+        mountainColor: 0x475569,
+        roofColor: 0xea580c,
+        wallColor: 0xf8fafc,
+        blossomColor: 0xf59e0b,
+        lanternA: 0xf43f5e,
+        lanternB: 0xfacc15
+      },
+      {
+        id: "saigon_night_city",
+        label: "Thành Phố Về Đêm ở Việt Nam",
+        sky: 0x09132b,
+        fog: 0x111f3d,
+        fogDensity: 0.0082,
+        ground: 0x1e293b,
+        ballast: 0x0f172a,
+        hemiSky: 0x38bdf8,
+        hemiGround: 0x1e293b,
+        hemiIntensity: 1.12,
+        dirColor: 0xfbbf24,
+        dirIntensity: 1.48,
+        paddyA: 0x1e293b,
+        paddyB: 0x0f172a,
+        pondColor: 0x0284c7,
+        mountainColor: 0x1e293b,
+        roofColor: 0xf97316,
+        wallColor: 0x334155,
         blossomColor: 0x38bdf8,
         lanternA: 0xf97316,
         lanternB: 0x38bdf8
@@ -2503,17 +2663,12 @@
     let trackGroundMesh = null;
     let trackBallastMesh = null;
 
+    let nextThemeOrderIdx = 0;
     function pickRandomHomelandTheme() {
-      const pool = VIETNAM_HOMELAND_THEMES.filter((t) => t.id !== lastHomelandThemeId);
-      const candidates = pool.length ? pool : VIETNAM_HOMELAND_THEMES;
-      let randVal = Math.random();
-      if (typeof window !== "undefined" && window.crypto && window.crypto.getRandomValues) {
-        const arr = new Uint32Array(1);
-        window.crypto.getRandomValues(arr);
-        randVal = arr[0] / 4294967296;
-      }
-      const idx = Math.min(candidates.length - 1, Math.floor(randVal * candidates.length));
-      const chosen = candidates[idx];
+      const len = VIETNAM_HOMELAND_THEMES.length;
+      const idx = ((nextThemeOrderIdx % len) + len) % len;
+      nextThemeOrderIdx = (idx + 1) % len;
+      const chosen = VIETNAM_HOMELAND_THEMES[idx];
       lastHomelandThemeId = chosen.id;
       activeHomelandTheme = chosen;
       return chosen;
@@ -3278,32 +3433,16 @@
         hill.position.set(side * 0.85, 0.88, -1.1);
         group.add(hill);
 
-        const pole = new THREE.Mesh(
-          new THREE.CylinderGeometry(0.06, 0.08, 4.6, 8),
-          new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.35, metalness: 0.7 })
-        );
-        pole.position.set(side * 0.85, 3.6, -1.1);
-        pole.castShadow = true;
-
-        const flagCloth = new THREE.Mesh(
-          new THREE.BoxGeometry(1.35, 0.88, 0.05),
-          new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.55 })
-        );
-        flagCloth.position.set(side * 0.85 + 0.68, 5.35, -1.1);
-        flagCloth.rotation.y = 0.22;
-
-        const goldStar = new THREE.Mesh(
-          new THREE.CylinderGeometry(0.24, 0.24, 0.07, 5),
-          new THREE.MeshStandardMaterial({ color: 0xfacc15, emissive: 0xeab308, emissiveIntensity: 0.4, roughness: 0.35 })
-        );
-        goldStar.rotation.x = Math.PI / 2;
-        goldStar.position.set(side * 0.85 + 0.68, 5.35, -1.06);
+        const borderFlagPole = buildVietnamFlagMesh(THREE);
+        borderFlagPole.scale.setScalar(1.08);
+        borderFlagPole.position.set(side * 0.85, 1.48, -1.1);
+        borderFlagPole.rotation.y = side < 0 ? 0.22 : -0.18;
 
         const sentinel = buildPatrolSoldierMesh(kindIndex + 2, side, 0);
         sentinel.position.set(side * -0.55, 0.24, 1.15);
         sentinel.rotation.y = side < 0 ? 0.22 : -0.22;
 
-        group.add(pole, flagCloth, goldStar, sentinel);
+        group.add(borderFlagPole, sentinel);
       }
 
       return group;
@@ -3666,58 +3805,143 @@
       return createSpringBlossomProp(kindIndex, side, theme);
     }
 
+    function createVietnamFlagTexture(THREE) {
+      if (typeof document === "undefined") return null;
+      const canvas = document.createElement("canvas");
+      canvas.width = 512;
+      canvas.height = 340;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return null;
+
+      // Nền đỏ cờ Việt Nam với ánh sáng vải tự nhiên
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, "#e11d48");
+      grad.addColorStop(0.45, "#dc2626");
+      grad.addColorStop(1, "#b91c1c");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Vân vải dệt nhẹ giúp bề mặt lá cờ chân thật hơn
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.045)";
+      ctx.lineWidth = 1;
+      for (let y = 0; y < canvas.height; y += 6) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // Ngôi sao vàng 5 cánh chuẩn tỉ lệ ở chính giữa lá cờ
+      const cx = canvas.width * 0.5;
+      const cy = canvas.height * 0.5;
+      const outerR = canvas.height * 0.30;
+      const innerR = outerR * 0.382;
+
+      ctx.save();
+      ctx.beginPath();
+      for (let i = 0; i < 10; i++) {
+        const r = i % 2 === 0 ? outerR : innerR;
+        const angle = -Math.PI / 2 + (i * Math.PI) / 5;
+        const x = cx + Math.cos(angle) * r;
+        const y = cy + Math.sin(angle) * r;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+
+      const starGrad = ctx.createLinearGradient(cx, cy - outerR, cx, cy + outerR);
+      starGrad.addColorStop(0, "#fef08a");
+      starGrad.addColorStop(0.55, "#facc15");
+      starGrad.addColorStop(1, "#eab308");
+      ctx.fillStyle = starGrad;
+      ctx.fill();
+      ctx.restore();
+
+      const tex = new THREE.CanvasTexture(canvas);
+      if (THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
+      tex.needsUpdate = true;
+      return tex;
+    }
+
     function buildVietnamFlagMesh(THREE) {
       const flagGroup = new THREE.Group();
 
+      // Cột cờ kim loại sáng bóng
       const pole = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.06, 0.075, 4.4, 12),
-        new THREE.MeshStandardMaterial({ color: 0xf8fafc, metalness: 0.65, roughness: 0.3 })
+        new THREE.CylinderGeometry(0.055, 0.072, 4.45, 14),
+        new THREE.MeshStandardMaterial({ color: 0xf1f5f9, metalness: 0.72, roughness: 0.25 })
       );
-      pole.position.set(0, 2.2, 0);
+      pole.position.set(0, 2.225, 0);
       pole.castShadow = true;
 
+      // Đỉnh chóp vàng trên đầu cột cờ
       const finial = new THREE.Mesh(
-        new THREE.SphereGeometry(0.12, 12, 12),
-        new THREE.MeshStandardMaterial({ color: 0xfacc15, metalness: 0.7, roughness: 0.25 })
+        new THREE.SphereGeometry(0.115, 14, 14),
+        new THREE.MeshStandardMaterial({ color: 0xfacc15, metalness: 0.75, roughness: 0.22 })
       );
-      finial.position.set(0, 4.45, 0);
+      finial.position.set(0, 4.48, 0);
+
+      // Khuyên treo cờ vào cột
+      const ringMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, metalness: 0.7, roughness: 0.28 });
+      const topRing = new THREE.Mesh(new THREE.TorusGeometry(0.072, 0.018, 8, 16), ringMat);
+      topRing.position.set(0, 4.24, 0);
+      topRing.rotation.y = Math.PI / 2;
+
+      const botRing = new THREE.Mesh(new THREE.TorusGeometry(0.072, 0.018, 8, 16), ringMat);
+      botRing.position.set(0, 3.30, 0);
+      botRing.rotation.y = Math.PI / 2;
 
       const flagBanner = new THREE.Group();
-      flagBanner.position.set(0.06, 3.82, 0);
+      flagBanner.position.set(0.06, 3.77, 0);
 
-      const flagCloth = new THREE.Mesh(
-        new THREE.BoxGeometry(1.36, 0.88, 0.05),
-        new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.55 })
-      );
-      flagCloth.position.set(0.68, 0, 0);
-      flagCloth.castShadow = true;
+      const width = 1.44;
+      const height = 0.96;
+      const segX = 24;
+      const segY = 10;
+      const clothGeo = new THREE.PlaneGeometry(width, height, segX, segY);
+      clothGeo.translate(width / 2, 0, 0);
 
-      // Ngôi sao vàng 5 cánh sắc nét hơn bằng cụm cánh tia quanh tâm sao
-      const starGroup = new THREE.Group();
-      starGroup.position.set(0.68, 0, 0.036);
-
-      const starMat = new THREE.MeshStandardMaterial({
-        color: 0xfacc15,
-        emissive: 0xca8a04,
-        emissiveIntensity: 0.22,
-        roughness: 0.35
-      });
-
-      const starCore = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.03, 5), starMat);
-      starCore.rotation.x = Math.PI / 2;
-      starGroup.add(starCore);
-
-      for (let k = 0; k < 5; k++) {
-        const ang = (k * Math.PI * 2) / 5 - Math.PI / 2;
-        const pt = new THREE.Mesh(new THREE.ConeGeometry(0.085, 0.24, 4), starMat);
-        pt.position.set(Math.cos(ang) * 0.14, Math.sin(ang) * 0.14, 0);
-        pt.rotation.z = ang - Math.PI / 2;
-        starGroup.add(pt);
+      const posAttr = clothGeo.attributes.position;
+      const baseZ = new Float32Array(posAttr.count);
+      const baseY = new Float32Array(posAttr.count);
+      for (let i = 0; i < posAttr.count; i++) {
+        const vx = posAttr.getX(i);
+        const vy = posAttr.getY(i);
+        const u = Math.max(0, Math.min(1, vx / width));
+        const waveZ = Math.sin(u * Math.PI * 2.15) * 0.11 * u;
+        const waveY = Math.cos(u * Math.PI * 1.4) * 0.035 * u;
+        posAttr.setZ(i, waveZ);
+        posAttr.setY(i, vy + waveY);
+        baseZ[i] = waveZ;
+        baseY[i] = vy + waveY;
       }
+      clothGeo.computeVertexNormals();
 
-      flagBanner.add(flagCloth, starGroup);
-      flagGroup.add(pole, finial, flagBanner);
+      const flagTex = createVietnamFlagTexture(THREE);
+      const clothMat = flagTex
+        ? new THREE.MeshStandardMaterial({
+            map: flagTex,
+            roughness: 0.52,
+            metalness: 0.04,
+            side: THREE.DoubleSide
+          })
+        : new THREE.MeshStandardMaterial({
+            color: 0xdc2626,
+            roughness: 0.52,
+            side: THREE.DoubleSide
+          });
+
+      const flagCloth = new THREE.Mesh(clothGeo, clothMat);
+      flagCloth.castShadow = true;
+      flagCloth.receiveShadow = true;
+
+      flagBanner.add(flagCloth);
+      flagGroup.add(pole, finial, topRing, botRing, flagBanner);
       flagGroup.userData.flagBanner = flagBanner;
+      flagBanner.userData.clothGeo = clothGeo;
+      flagBanner.userData.clothBaseY = baseY;
+      flagBanner.userData.clothBaseZ = baseZ;
+      flagBanner.userData.flagWidth = width;
       return flagGroup;
     }
 
@@ -4325,6 +4549,9 @@
       const THREE = window.THREE;
       const t = theme || VIETNAM_HOMELAND_THEMES[0];
       const variant = Math.abs(kindIndex) % 4;
+      if (t.id === "vietnam_school_yard" || t.id === "saigon_night_city") {
+        return createVietnameseSceneryProp(variant, side, t);
+      }
       const cacheKey = `${t.id}_${side}_${variant}`;
       let tmpl = __themeTemplateCache.get(cacheKey);
       if (!tmpl) {
@@ -4372,23 +4599,20 @@
             b.material.color.setHex(theme.mountainColor);
           }
         }
-        if (!announce) {
-          for (let i = 0; i < sceneryProps.length; i++) {
-            const spProp = sceneryProps[i];
-            if (!spProp || !spProp.mesh) continue;
-            const curZ = spProp.mesh.position.z;
-            const nextSeed = i * 3 + (spProp.side > 0 ? 1 : 0) + Math.floor(Math.random() * 4);
-            const halfExtent = 2.4;
-            const nextX = computeSafePropX(spProp.side, nextSeed, halfExtent);
-            const replacement = getThemePropTemplate(nextSeed, spProp.side, theme);
-            replacement.position.set(nextX, 0, curZ);
-            const prevMesh = spProp.mesh;
-            sceneryGroup.remove(prevMesh);
-            if (typeof disposeObject3D === "function") disposeObject3D(prevMesh);
-            sceneryGroup.add(replacement);
-            spProp.mesh = replacement;
-            spProp.baseX = nextX;
-          }
+        for (let i = 0; i < sceneryProps.length; i++) {
+          const spProp = sceneryProps[i];
+          if (!spProp || !spProp.mesh) continue;
+          const curZ = spProp.mesh.position.z;
+          const nextSeed = i * 3 + (spProp.side > 0 ? 1 : 0);
+          const halfExtent = 2.4;
+          const nextX = computeSafePropX(spProp.side, nextSeed, halfExtent);
+          const replacement = getThemePropTemplate(nextSeed, spProp.side, theme);
+          replacement.position.set(nextX, 0, curZ);
+          const prevMesh = spProp.mesh;
+          sceneryGroup.remove(prevMesh);
+          sceneryGroup.add(replacement);
+          spProp.mesh = replacement;
+          spProp.baseX = nextX;
         }
         if (announce && typeof showToast === "function") {
           showToast(`Quê hương: ${theme.label}`);
@@ -4446,11 +4670,10 @@
         camera.position.set(0, 6.8, 16.4);
         camera.lookAt(0, 0.75, -10.5);
 
-        renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+        renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "high-performance" });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
         renderer.setSize(w, h, false);
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFShadowMap;
+        renderer.shadowMap.enabled = false;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.12;
 
@@ -4645,8 +4868,76 @@
       }
       ctx.restore();
     }
+    function paintLucQuanCamo(ctx, w, h, seedShift = 0) {
+      // Bảng màu rằn ri Lục Quân K20 chuẩn ảnh: nền xanh rêu sáng (#546e36), xanh rêu đậm (#1f3318), nâu đất ấm (#7f532c), nâu đen (#141812)
+      ctx.fillStyle = "#546e36";
+      ctx.fillRect(0, 0, w, h);
+
+      const drawBlob = (pts, fillStyle) => {
+        ctx.fillStyle = fillStyle;
+        ctx.beginPath();
+        pts.forEach(([px, py], i) => {
+          const x = px * w;
+          const y = py * h;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        ctx.closePath();
+        ctx.fill();
+      };
+
+      // Mảng xanh rêu đậm uốn lượn
+      drawBlob([[0.00, 0.04], [0.24, 0.01], [0.36, 0.15], [0.25, 0.30], [0.08, 0.28], [0.00, 0.17]], "#1f3318");
+      drawBlob([[0.52, 0.07], [0.80, 0.02], [0.98, 0.17], [0.87, 0.34], [0.64, 0.31], [0.54, 0.19]], "#1f3318");
+      drawBlob([[0.08, 0.42], [0.36, 0.36], [0.50, 0.56], [0.37, 0.75], [0.14, 0.72], [0.04, 0.57]], "#1f3318");
+      drawBlob([[0.56, 0.46], [0.88, 0.40], [1.00, 0.62], [0.89, 0.84], [0.63, 0.81], [0.52, 0.64]], "#1f3318");
+      drawBlob([[0.22, 0.79], [0.52, 0.75], [0.65, 0.95], [0.41, 1.00], [0.18, 0.94]], "#1f3318");
+
+      // Mảng nâu đất / nâu hạt dẻ xen kẽ
+      drawBlob([[0.25, 0.09], [0.51, 0.06], [0.61, 0.22], [0.46, 0.36], [0.27, 0.29]], "#7f532c");
+      drawBlob([[0.01, 0.27], [0.21, 0.25], [0.26, 0.43], [0.11, 0.51], [0.00, 0.40]], "#7f532c");
+      drawBlob([[0.41, 0.33], [0.67, 0.29], [0.76, 0.48], [0.58, 0.61], [0.39, 0.48]], "#7f532c");
+      drawBlob([[0.73, 0.23], [0.97, 0.21], [1.00, 0.41], [0.82, 0.47], [0.71, 0.34]], "#7f532c");
+      drawBlob([[0.13, 0.69], [0.35, 0.65], [0.41, 0.85], [0.21, 0.91], [0.09, 0.80]], "#7f532c");
+      drawBlob([[0.51, 0.71], [0.79, 0.67], [0.88, 0.89], [0.64, 0.97], [0.47, 0.86]], "#7f532c");
+
+      // Vệt đen sẫm nằm gọn bên trong mảng rằn ri
+      drawBlob([[0.09, 0.07], [0.21, 0.05], [0.25, 0.16], [0.12, 0.19]], "#141812");
+      drawBlob([[0.64, 0.11], [0.81, 0.08], [0.85, 0.22], [0.68, 0.24]], "#141812");
+      drawBlob([[0.33, 0.14], [0.47, 0.12], [0.51, 0.24], [0.36, 0.26]], "#141812");
+      drawBlob([[0.19, 0.49], [0.35, 0.46], [0.39, 0.60], [0.22, 0.63]], "#141812");
+      drawBlob([[0.49, 0.40], [0.64, 0.37], [0.68, 0.50], [0.51, 0.52]], "#141812");
+      drawBlob([[0.70, 0.55], [0.87, 0.52], [0.91, 0.68], [0.73, 0.70]], "#141812");
+      drawBlob([[0.32, 0.83], [0.48, 0.80], [0.52, 0.93], [0.35, 0.95]], "#141812");
+
+      // Vân dệt vải kaki quân phục
+      ctx.strokeStyle = "rgba(10, 16, 8, 0.14)";
+      ctx.lineWidth = 1;
+      for (let y = (seedShift % 4); y < h; y += 4) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+      }
+    }
+
+    function createLucQuanCamoTexture(w = 256, h = 256, seedShift = 0) {
+      const THREE = window.THREE;
+      const canvas = document.createElement("canvas");
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      paintLucQuanCamo(ctx, w, h, seedShift);
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.wrapS = THREE.RepeatWrapping;
+      tex.wrapT = THREE.RepeatWrapping;
+      tex.needsUpdate = true;
+      return tex;
+    }
+
     function getMaleKitKind(outfit) {
       if (!outfit) return null;
+      if (outfit.kitType === "luc_quan" || outfit.id === "luc_quan") return "luc_quan";
+      if (outfit.kitType === "quan_doi_nhan_dan" || outfit.id === "quan_doi_nhan_dan") return "quan_doi_nhan_dan";
+      if (outfit.kitType === "dan_quan" || outfit.id === "dan_quan") return "dan_quan";
       if (outfit.kitType === "vietnam" || outfit.id === "vietnam_flag") return "vietnam";
       if (outfit.kitType === "barca10" || outfit.id === "messi_barca") return "barca10";
       if (outfit.kitType === "brazil10" || outfit.id === "neymar_brazil") return "brazil10";
@@ -4662,6 +4953,154 @@
       const ctx = canvas.getContext("2d");
 
       const kind = getMaleKitKind(outfit);
+      if (kind === "luc_quan") {
+        // Mặt sau áo dã chiến Lục Quân rằn ri chuẩn ảnh: cầu vai đỏ viền vàng, đường may lưng & gấu áo
+        paintLucQuanCamo(ctx, canvas.width, canvas.height, 1);
+
+        ctx.fillStyle = "rgba(12, 20, 10, 0.30)";
+        ctx.fillRect(0, 0, 36, canvas.height);
+        ctx.fillRect(canvas.width - 36, 0, 36, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, 92);
+
+        ctx.strokeStyle = "#141c11";
+        ctx.lineWidth = 3.5;
+        ctx.beginPath(); ctx.moveTo(16, 92); ctx.lineTo(canvas.width - 16, 92); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(canvas.width / 2, 92); ctx.lineTo(canvas.width / 2, canvas.height - 14); ctx.stroke();
+
+        // Cầu vai đỏ viền vàng kim ở hai bên vai
+        for (const side of [0, 1]) {
+          const ex = side === 0 ? 32 : canvas.width - 152;
+          ctx.fillStyle = "#eab308";
+          ctx.fillRect(ex - 3, 6, 126, 36);
+          ctx.fillStyle = "#dc2626";
+          ctx.fillRect(ex, 9, 120, 30);
+          ctx.strokeStyle = "#fde047";
+          ctx.lineWidth = 2;
+          ctx.strokeRect(ex + 3, 12, 114, 24);
+        }
+
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+        return tex;
+      }
+      if (kind === "quan_doi_nhan_dan") {
+        // Mặt sau áo lễ phục Quân đội Nhân dân màu xanh rêu sẫm (#2d4f38) như ảnh
+        ctx.fillStyle = "#2d4f38";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Vân dệt vải tuy-xi / kaki quân phục mịn
+        ctx.strokeStyle = "rgba(10, 22, 14, 0.16)";
+        ctx.lineWidth = 1;
+        for (let y = 0; y < canvas.height; y += 5) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+        }
+        for (let x = 0; x < canvas.width; x += 5) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+        }
+
+        // Bóng đổ hai bên sườn & cầu vai
+        ctx.fillStyle = "rgba(14, 28, 18, 0.36)";
+        ctx.fillRect(0, 0, 38, canvas.height);
+        ctx.fillRect(canvas.width - 38, 0, 38, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, 94);
+
+        // Đường may cầu vai ngang lưng & chỉ diễu
+        ctx.strokeStyle = "#16291c";
+        ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.moveTo(18, 94); ctx.lineTo(canvas.width - 18, 94); ctx.stroke();
+
+        // Đường xẻ sống lưng & nếp may dọc lưng áo lễ phục
+        ctx.strokeStyle = "#16291c";
+        ctx.lineWidth = 3.5;
+        ctx.beginPath();
+        ctx.moveTo(canvas.width / 2, 94);
+        ctx.lineTo(canvas.width / 2, canvas.height - 16);
+        ctx.stroke();
+
+        // Hai cầu vai đỏ viền vàng kim đặc trưng Quân đội Nhân dân hai bên vai
+        for (const side of [0, 1]) {
+          const ex = side === 0 ? 32 : canvas.width - 152;
+          ctx.fillStyle = "#eab308";
+          ctx.fillRect(ex - 3, 6, 126, 36);
+          ctx.fillStyle = "#b91c1c";
+          ctx.fillRect(ex, 9, 120, 30);
+          ctx.strokeStyle = "#fde047";
+          ctx.lineWidth = 2;
+          ctx.strokeRect(ex + 3, 12, 114, 24);
+        }
+
+        // Viền gấu áo dưới
+        ctx.strokeStyle = "#16291c";
+        ctx.lineWidth = 3.5;
+        ctx.beginPath(); ctx.moveTo(12, canvas.height - 16); ctx.lineTo(canvas.width - 12, canvas.height - 16); ctx.stroke();
+
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+        return tex;
+      }
+      if (kind === "dan_quan") {
+        // Mặt sau áo sơ mi Dân quân tự vệ màu xanh cô ban sẫm
+        ctx.fillStyle = "#00b8f0";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Vân dệt vải kaki mờ tự nhiên
+        ctx.strokeStyle = "rgba(7, 18, 42, 0.16)";
+        ctx.lineWidth = 1;
+        for (let y = 0; y < canvas.height; y += 5) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+        }
+        for (let x = 0; x < canvas.width; x += 5) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+        }
+
+        // Bóng đổ nếp vải hai bên sườn & cầu vai sau
+        ctx.fillStyle = "rgba(9, 24, 54, 0.36)";
+        ctx.fillRect(0, 0, 36, canvas.height);
+        ctx.fillRect(canvas.width - 36, 0, 36, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, 96);
+
+        // Đường may cầu vai ngang lưng (back yoke) & đường chỉ diễu
+        ctx.strokeStyle = "#005270";
+        ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.moveTo(18, 96); ctx.lineTo(canvas.width - 18, 96); ctx.stroke();
+        ctx.setLineDash([7, 5]);
+        ctx.strokeStyle = "rgba(147, 197, 253, 0.24)";
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(18, 91); ctx.lineTo(canvas.width - 18, 91); ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Nếp ly dọc sống lưng quân phục
+        ctx.fillStyle = "rgba(7, 18, 42, 0.38)";
+        ctx.fillRect(canvas.width / 2 - 7, 96, 14, canvas.height - 116);
+        ctx.strokeStyle = "#005270";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(canvas.width / 2 - 7, 96); ctx.lineTo(canvas.width / 2 - 7, canvas.height - 20);
+        ctx.moveTo(canvas.width / 2 + 7, 96); ctx.lineTo(canvas.width / 2 + 7, canvas.height - 20);
+        ctx.stroke();
+
+        // Hai cầu vai hai bên vai áo
+        for (const side of [0, 1]) {
+          const ex = side === 0 ? 34 : canvas.width - 146;
+          ctx.fillStyle = "#0084b0";
+          ctx.fillRect(ex, 6, 112, 34);
+          ctx.strokeStyle = "#005270";
+          ctx.lineWidth = 3;
+          ctx.strokeRect(ex, 6, 112, 34);
+        }
+
+        // Gấu áo may gập
+        ctx.strokeStyle = "#005270";
+        ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(12, canvas.height - 18); ctx.lineTo(canvas.width - 12, canvas.height - 18); ctx.stroke();
+
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+        return tex;
+      }
       const isVietnam = kind === "vietnam";
       const isBarca = kind === "barca10";
       const isBrazil = kind === "brazil10";
@@ -4803,6 +5242,330 @@
       canvas.height = 256;
       const ctx = canvas.getContext("2d");
       const kind = getMaleKitKind(outfit);
+      if (kind === "luc_quan") {
+        // Mặt trước áo dã chiến Lục Quân rằn ri: cầu vai đỏ viền vàng, cổ bẻ, nẹp cúc & 2 túi ngực hộp có nắp cài cúc
+        paintLucQuanCamo(ctx, canvas.width, canvas.height, 2);
+
+        ctx.fillStyle = "rgba(12, 20, 10, 0.25)";
+        ctx.fillRect(0, 0, 16, canvas.height);
+        ctx.fillRect(canvas.width - 16, 0, 16, canvas.height);
+
+        const cx = canvas.width / 2;
+
+        // Cầu vai đỏ viền vàng kim ở hai bên vai
+        for (const isRight of [false, true]) {
+          const ex = isRight ? canvas.width - 78 : 16;
+          ctx.fillStyle = "#eab308";
+          ctx.fillRect(ex - 2, 3, 66, 20);
+          ctx.fillStyle = "#dc2626";
+          ctx.fillRect(ex, 5, 62, 16);
+          ctx.strokeStyle = "#fde047";
+          ctx.lineWidth = 1.4;
+          ctx.strokeRect(ex + 2, 7, 58, 12);
+        }
+
+        // Cổ áo bẻ dã chiến & nẹp cúc
+        ctx.strokeStyle = "#141c11";
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(cx - 46, 0); ctx.lineTo(cx - 6, 36); ctx.lineTo(cx - 22, 60); ctx.lineTo(cx - 56, 24);
+        ctx.closePath(); ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(cx + 46, 0); ctx.lineTo(cx + 6, 36); ctx.lineTo(cx + 22, 60); ctx.lineTo(cx + 56, 24);
+        ctx.closePath(); ctx.stroke();
+
+        ctx.strokeStyle = "#141c11";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(cx - 10, 40); ctx.lineTo(cx - 10, canvas.height);
+        ctx.moveTo(cx + 10, 40); ctx.lineTo(cx + 10, canvas.height);
+        ctx.stroke();
+
+        // Hàng cúc xanh rêu đậm
+        for (const by of [74, 118, 162, 206]) {
+          ctx.fillStyle = "#1a2816";
+          ctx.beginPath(); ctx.arc(cx, by, 5, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = "#6c824c";
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.arc(cx, by, 3, 0, Math.PI * 2); ctx.stroke();
+        }
+
+        // Hai túi ngực hộp dã chiến có nắp cài cúc
+        for (const px of [30, canvas.width - 94]) {
+          const pw = 64, py = 84, ph = 66;
+          ctx.fillStyle = "rgba(36, 51, 29, 0.72)";
+          ctx.fillRect(px, py, pw, ph);
+          ctx.strokeStyle = "#141c11";
+          ctx.lineWidth = 2;
+          ctx.strokeRect(px, py, pw, ph);
+
+          ctx.fillStyle = "rgba(75, 93, 52, 0.92)";
+          ctx.beginPath();
+          ctx.moveTo(px - 2, py);
+          ctx.lineTo(px + pw + 2, py);
+          ctx.lineTo(px + pw + 2, py + 20);
+          ctx.lineTo(px + pw / 2, py + 27);
+          ctx.lineTo(px - 2, py + 20);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#1a2816";
+          ctx.beginPath(); ctx.arc(px + pw / 2, py + 15, 4.2, 0, Math.PI * 2); ctx.fill();
+        }
+
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+        return tex;
+      }
+      if (kind === "quan_doi_nhan_dan") {
+        // Mặt trước áo lễ phục Quân đội Nhân dân màu xanh rêu sẫm (#2d4f38): cổ bẻ, cổ áo sơ mi xanh nhạt & cà vạt sẫm, cầu vai đỏ viền vàng, hàng cúc vàng, 4 túi có nắp & cúc vàng
+        ctx.fillStyle = "#2d4f38";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Vân dệt vải mịn
+        ctx.strokeStyle = "rgba(10, 22, 14, 0.16)";
+        ctx.lineWidth = 1;
+        for (let y = 0; y < canvas.height; y += 4) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+        }
+        for (let x = 0; x < canvas.width; x += 4) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+        }
+
+        // Bóng đổ hai bên sườn
+        ctx.fillStyle = "rgba(14, 28, 18, 0.28)";
+        ctx.fillRect(0, 0, 18, canvas.height);
+        ctx.fillRect(canvas.width - 18, 0, 18, canvas.height);
+
+        const cx = canvas.width / 2;
+
+        // Cổ sơ mi xanh nhạt/vàng rêu bên trong & cà vạt sẫm
+        ctx.fillStyle = "#9fb36b";
+        ctx.beginPath();
+        ctx.moveTo(cx - 32, 0); ctx.lineTo(cx + 32, 0); ctx.lineTo(cx, 54);
+        ctx.closePath(); ctx.fill();
+
+        ctx.fillStyle = "#16291c";
+        ctx.beginPath();
+        ctx.moveTo(cx - 7, 16); ctx.lineTo(cx + 7, 16); ctx.lineTo(cx + 11, 78); ctx.lineTo(cx, 88); ctx.lineTo(cx - 11, 78);
+        ctx.closePath(); ctx.fill();
+
+        // Ve áo / cổ bẻ xanh rêu sẫm hai bên
+        ctx.fillStyle = "#2d4f38";
+        ctx.strokeStyle = "#142619";
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(cx - 52, 0); ctx.lineTo(cx - 6, 36); ctx.lineTo(cx - 24, 64); ctx.lineTo(cx - 62, 26);
+        ctx.closePath(); ctx.fill(); ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(cx + 52, 0); ctx.lineTo(cx + 6, 36); ctx.lineTo(cx + 24, 64); ctx.lineTo(cx + 62, 26);
+        ctx.closePath(); ctx.fill(); ctx.stroke();
+
+        // Cầu vai đỏ viền vàng kim ở hai bên vai
+        for (const isRight of [false, true]) {
+          const ex = isRight ? canvas.width - 78 : 16;
+          ctx.fillStyle = "#eab308";
+          ctx.fillRect(ex - 2, 3, 66, 20);
+          ctx.fillStyle = "#b91c1c";
+          ctx.fillRect(ex, 5, 62, 16);
+          ctx.strokeStyle = "#fde047";
+          ctx.lineWidth = 1.4;
+          ctx.strokeRect(ex + 2, 7, 58, 12);
+        }
+
+        // Nẹp cúc giữa & hàng cúc kim loại vàng sáng
+        ctx.strokeStyle = "#142619";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(cx - 12, 42); ctx.lineTo(cx - 12, canvas.height);
+        ctx.moveTo(cx + 12, 42); ctx.lineTo(cx + 12, canvas.height);
+        ctx.stroke();
+
+        for (const by of [76, 118, 160, 202, 236]) {
+          ctx.fillStyle = "#eab308";
+          ctx.beginPath(); ctx.arc(cx, by, 5.8, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = "#fef08a";
+          ctx.beginPath(); ctx.arc(cx - 1.5, by - 1.5, 2.2, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = "#854d0e";
+          ctx.lineWidth = 1.2;
+          ctx.beginPath(); ctx.arc(cx, by, 5.8, 0, Math.PI * 2); ctx.stroke();
+        }
+
+        // Hai túi ngực hộp có nếp ly, nắp túi nhọn giữa & cúc vàng
+        for (const px of [30, canvas.width - 94]) {
+          const pw = 64, py = 86, ph = 64;
+          ctx.fillStyle = "#294833";
+          ctx.fillRect(px, py, pw, ph);
+          ctx.strokeStyle = "#142619";
+          ctx.lineWidth = 2;
+          ctx.strokeRect(px, py, pw, ph);
+
+          ctx.fillStyle = "#31563d";
+          ctx.beginPath();
+          ctx.moveTo(px - 2, py);
+          ctx.lineTo(px + pw + 2, py);
+          ctx.lineTo(px + pw + 2, py + 20);
+          ctx.lineTo(px + pw / 2, py + 28);
+          ctx.lineTo(px - 2, py + 20);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#facc15";
+          ctx.beginPath(); ctx.arc(px + pw / 2, py + 15, 4.4, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = "#854d0e";
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.arc(px + pw / 2, py + 15, 4.4, 0, Math.PI * 2); ctx.stroke();
+        }
+
+        // Huy hiệu quân hàm / phù hiệu vàng kim phía trên túi ngực trái
+        ctx.fillStyle = "#eab308";
+        ctx.fillRect(36, 68, 44, 11);
+        ctx.fillStyle = "#dc2626";
+        ctx.fillRect(54, 70, 8, 7);
+
+        // Hai túi dưới thân áo có nắp & cúc vàng
+        for (const px of [26, canvas.width - 98]) {
+          const pw = 72, py = 166, ph = 72;
+          ctx.fillStyle = "#294833";
+          ctx.fillRect(px, py, pw, ph);
+          ctx.strokeStyle = "#142619";
+          ctx.lineWidth = 2;
+          ctx.strokeRect(px, py, pw, ph);
+
+          ctx.fillStyle = "#31563d";
+          ctx.beginPath();
+          ctx.moveTo(px - 2, py);
+          ctx.lineTo(px + pw + 2, py);
+          ctx.lineTo(px + pw + 2, py + 22);
+          ctx.lineTo(px + pw / 2, py + 28);
+          ctx.lineTo(px - 2, py + 22);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#facc15";
+          ctx.beginPath(); ctx.arc(px + pw / 2, py + 15, 4.6, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = "#854d0e";
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.arc(px + pw / 2, py + 15, 4.6, 0, Math.PI * 2); ctx.stroke();
+        }
+
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+        return tex;
+      }
+      if (kind === "dan_quan") {
+        // Mặt trước áo sơ mi Dân quân tự vệ màu xanh cô ban sẫm: cổ bẻ, nẹp cúc giữa, 2 túi ngực hộp có nắp & cúc cài, cầu vai
+        ctx.fillStyle = "#00b8f0";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Vân dệt vải kaki mịn
+        ctx.strokeStyle = "rgba(7, 18, 42, 0.16)";
+        ctx.lineWidth = 1;
+        for (let y = 0; y < canvas.height; y += 4) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+        }
+        for (let x = 0; x < canvas.width; x += 4) {
+          ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
+        }
+
+        // Tạo khối bóng nhẹ hai bên sườn
+        ctx.fillStyle = "rgba(9, 24, 54, 0.30)";
+        ctx.fillRect(0, 0, 18, canvas.height);
+        ctx.fillRect(canvas.width - 18, 0, 18, canvas.height);
+
+        // Cầu vai hai bên vai áo kèm cúc cài
+        for (const isRight of [false, true]) {
+          const ex = isRight ? canvas.width - 74 : 18;
+          ctx.fillStyle = "#0084b0";
+          ctx.fillRect(ex, 4, 56, 18);
+          ctx.strokeStyle = "#005270";
+          ctx.lineWidth = 2;
+          ctx.strokeRect(ex, 4, 56, 18);
+          const bx = isRight ? ex + 10 : ex + 46;
+          ctx.fillStyle = "#005270";
+          ctx.beginPath(); ctx.arc(bx, 13, 3.5, 0, Math.PI * 2); ctx.fill();
+        }
+
+        // Nẹp áo giữa & hàng cúc áo sơ mi
+        const cx = canvas.width / 2;
+        ctx.fillStyle = "#0084b0";
+        ctx.fillRect(cx - 10, 34, 20, canvas.height - 34);
+        ctx.strokeStyle = "#005270";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(cx - 10, 34); ctx.lineTo(cx - 10, canvas.height);
+        ctx.moveTo(cx + 10, 34); ctx.lineTo(cx + 10, canvas.height);
+        ctx.stroke();
+
+        // 4 cúc áo xanh cô ban sẫm có viền & lỗ chỉ
+        for (const by of [62, 108, 154, 200]) {
+          ctx.fillStyle = "#005270";
+          ctx.beginPath(); ctx.arc(cx, by, 5.2, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = "#93c5fd";
+          ctx.lineWidth = 0.9;
+          ctx.beginPath(); ctx.arc(cx, by, 3.4, 0, Math.PI * 2); ctx.stroke();
+        }
+
+        // Cổ áo sơ mi bẻ hai bên mở chữ V
+        ctx.fillStyle = "#005270";
+        ctx.beginPath();
+        ctx.moveTo(cx - 46, 0); ctx.lineTo(cx + 46, 0); ctx.lineTo(cx, 38);
+        ctx.closePath(); ctx.fill();
+
+        // Lá cổ trái & phải
+        ctx.fillStyle = "#29caff";
+        ctx.strokeStyle = "#005270";
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(cx - 46, 2); ctx.lineTo(cx - 4, 28); ctx.lineTo(cx - 24, 52); ctx.lineTo(cx - 56, 24);
+        ctx.closePath(); ctx.fill(); ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(cx + 46, 2); ctx.lineTo(cx + 4, 28); ctx.lineTo(cx + 24, 52); ctx.lineTo(cx + 56, 24);
+        ctx.closePath(); ctx.fill(); ctx.stroke();
+
+        // Hai túi ngực hộp có nếp ly giữa, nắp túi & cúc cài
+        for (const px of [34, canvas.width - 96]) {
+          const pw = 62, py = 84, ph = 74;
+          ctx.fillStyle = "#0084b0";
+          ctx.fillRect(px, py, pw, ph);
+          ctx.strokeStyle = "#005270";
+          ctx.lineWidth = 2;
+          ctx.strokeRect(px, py, pw, ph);
+
+          ctx.fillStyle = "rgba(7, 18, 42, 0.36)";
+          ctx.fillRect(px + pw / 2 - 4, py + 24, 8, ph - 26);
+
+          ctx.fillStyle = "#29caff";
+          ctx.beginPath();
+          ctx.moveTo(px - 2, py);
+          ctx.lineTo(px + pw + 2, py);
+          ctx.lineTo(px + pw + 2, py + 22);
+          ctx.lineTo(px + pw / 2, py + 27);
+          ctx.lineTo(px - 2, py + 22);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = "#005270";
+          ctx.beginPath(); ctx.arc(px + pw / 2, py + 14, 4.4, 0, Math.PI * 2); ctx.fill();
+          ctx.strokeStyle = "#93c5fd";
+          ctx.lineWidth = 0.8;
+          ctx.beginPath(); ctx.arc(px + pw / 2, py + 14, 2.8, 0, Math.PI * 2); ctx.stroke();
+        }
+
+        const tex = new THREE.CanvasTexture(canvas);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.needsUpdate = true;
+        return tex;
+      }
       const isVietnam = kind === "vietnam";
       const isBarca = kind === "barca10";
       const isBrazil = kind === "brazil10";
@@ -4976,42 +5739,52 @@
       if (!playerBodyMesh || !window.THREE) return;
       const THREE = window.THREE;
       const kind = getMaleKitKind(outfit);
+      const isLucQuan = kind === "luc_quan";
+      const isQuanDoi = kind === "quan_doi_nhan_dan";
+      const isDanQuan = kind === "dan_quan";
       const isMaleKit = Boolean(kind);
       const isDefaultMale = Boolean(outfit && (outfit.id === "default_kit" || outfit.id === "street_green" || outfit.kitType === "default"));
-      const hasAnyMaleShorts = isMaleKit || isDefaultMale;
+      const hasAnyMaleShorts = (isMaleKit && !isDanQuan && !isQuanDoi && !isLucQuan) || isDefaultMale;
 
       if (!playerBackJerseyMesh) {
-        const backGeo = new THREE.PlaneGeometry(0.84, 0.98);
+        const backGeo = new THREE.CylinderGeometry(0.352, 0.278, 0.78, 32, 1, true, -Math.PI * 0.39, Math.PI * 0.78);
+        backGeo.scale(1.06, 1.0, 0.65);
         const backMat = new THREE.MeshStandardMaterial({
-          roughness: 0.48,
-          metalness: 0.08,
+          roughness: 0.68,
+          metalness: 0.03,
+          transparent: true,
+          side: THREE.DoubleSide,
           polygonOffset: true,
-          polygonOffsetFactor: -1
+          polygonOffsetFactor: -2
         });
         playerBackJerseyMesh = new THREE.Mesh(backGeo, backMat);
-        playerBackJerseyMesh.position.set(0, 0, 0.265);
+        playerBackJerseyMesh.position.set(0, 0.02, 0.004);
         playerBodyMesh.add(playerBackJerseyMesh);
       }
 
       if (!playerFrontJerseyMesh) {
-        const frontGeo = new THREE.PlaneGeometry(0.84, 0.98);
+        const frontGeo = new THREE.CylinderGeometry(0.352, 0.278, 0.78, 32, 1, true, Math.PI - Math.PI * 0.39, Math.PI * 0.78);
+        frontGeo.scale(1.06, 1.0, 0.65);
         const frontMat = new THREE.MeshStandardMaterial({
-          roughness: 0.5,
-          metalness: 0.08,
+          roughness: 0.68,
+          metalness: 0.03,
+          transparent: true,
+          side: THREE.DoubleSide,
           polygonOffset: true,
-          polygonOffsetFactor: -1
+          polygonOffsetFactor: -2
         });
         playerFrontJerseyMesh = new THREE.Mesh(frontGeo, frontMat);
-        playerFrontJerseyMesh.rotation.y = Math.PI;
-        playerFrontJerseyMesh.position.set(0, 0, -0.265);
+        playerFrontJerseyMesh.position.set(0, 0.02, -0.004);
         playerBodyMesh.add(playerFrontJerseyMesh);
       }
 
       if (!playerCollarMesh) {
-        const collarGeo = new THREE.BoxGeometry(0.9, 0.09, 0.55);
-        const collarMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.4 });
+        const collarGeo = new THREE.TorusGeometry(0.145, 0.015, 10, 28);
+        collarGeo.rotateX(Math.PI / 2 - 0.08);
+        collarGeo.scale(1.12, 0.86, 1.0);
+        const collarMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.38 });
         playerCollarMesh = new THREE.Mesh(collarGeo, collarMat);
-        playerCollarMesh.position.set(0, 0.49, 0);
+        playerCollarMesh.position.set(0, 0.485, -0.005);
         playerBodyMesh.add(playerCollarMesh);
       }
 
@@ -5055,7 +5828,7 @@
         playerFrontJerseyMesh.visible = true;
 
         if (playerCollarMesh) {
-          const collarHex = kind === "vietnam" ? "#ffcd00" : (kind === "barca10" ? "#edbb00" : (kind === "brazil10" ? "#009c3b" : "#ffffff"));
+          const collarHex = kind === "luc_quan" ? "#4b5d34" : (kind === "quan_doi_nhan_dan" ? "#9fb36b" : (kind === "dan_quan" ? "#00b8f0" : (kind === "vietnam" ? "#ffcd00" : (kind === "barca10" ? "#edbb00" : (kind === "brazil10" ? "#009c3b" : "#ffffff")))));
           playerCollarMesh.material.color.set(collarHex);
           playerCollarMesh.visible = true;
         }
@@ -5063,6 +5836,548 @@
         if (playerBackJerseyMesh) playerBackJerseyMesh.visible = false;
         if (playerFrontJerseyMesh) playerFrontJerseyMesh.visible = false;
         if (playerCollarMesh) playerCollarMesh.visible = false;
+      }
+
+      // Mũ Lục Quân xanh lá đặc trưng theo ảnh: vòm mũ đóng kín dày dặn, vành xòe có viền bo, lỗ thoáng khí, phù hiệu sao vàng nền đỏ & quai mũ đen
+      if (playerHeadMesh) {
+        let lqHelmet = playerHeadMesh.getObjectByName("lucQuanHelmetGroup");
+        if (!lqHelmet) {
+          lqHelmet = new THREE.Group();
+          lqHelmet.name = "lucQuanHelmetGroup";
+
+          const lqGreenMat = new THREE.MeshStandardMaterial({ color: 0x2c7a32, roughness: 0.40, metalness: 0.14, side: THREE.DoubleSide });
+          const lqRimMat = new THREE.MeshStandardMaterial({ color: 0x236428, roughness: 0.44, metalness: 0.14, side: THREE.DoubleSide });
+          const lqVentMat = new THREE.MeshStandardMaterial({ color: 0x162016, roughness: 0.65, metalness: 0.25 });
+          const lqStrapMat = new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.68, metalness: 0.10 });
+
+          // Vòm mũ Lục Quân xanh lá ôm đầu
+          const dome = new THREE.Mesh(
+            new THREE.SphereGeometry(0.384, 36, 24, 0, Math.PI * 2, 0, Math.PI * 0.56),
+            lqGreenMat
+          );
+          dome.scale.set(1.02, 0.98, 1.10);
+          dome.position.set(0, 0.066, -0.012);
+          dome.castShadow = true;
+
+          // Vành mũ xòe & viền bo dày rõ nét (TorusGeometry) để không bị hở mép mỏng
+          const brimFlare = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.382, 0.434, 0.052, 36, 1, false),
+            lqRimMat
+          );
+          brimFlare.scale.set(1.02, 1.0, 1.10);
+          brimFlare.position.set(0, 0.062, -0.012);
+          brimFlare.castShadow = true;
+
+          const brimLip = new THREE.Mesh(
+            new THREE.TorusGeometry(0.432, 0.012, 10, 36),
+            lqGreenMat
+          );
+          brimLip.rotation.x = Math.PI / 2;
+          brimLip.scale.set(1.02, 1.10, 1.0);
+          brimLip.position.set(0, 0.036, -0.012);
+
+          // Cúc nhỏ trên đỉnh chóp mũ
+          const crownKnob = new THREE.Mesh(new THREE.SphereGeometry(0.022, 12, 12), lqRimMat);
+          crownKnob.position.set(0, 0.438, -0.012);
+
+          // Lỗ thoáng khí hai bên vòm mũ
+          for (const side of [-1, 1]) {
+            for (const zOff of [-0.05, 0.07]) {
+              const vent = new THREE.Mesh(new THREE.CylinderGeometry(0.013, 0.013, 0.026, 10), lqVentMat);
+              vent.rotation.z = Math.PI / 2;
+              vent.position.set(side * 0.378, 0.236, zOff);
+              lqHelmet.add(vent);
+            }
+          }
+
+          // Quai mũ đen vòng qua hai bên má & dưới cằm
+          const strapCurve = new THREE.CatmullRomCurve3([
+            new THREE.Vector3(-0.358, 0.075, -0.045),
+            new THREE.Vector3(-0.278, -0.185, -0.165),
+            new THREE.Vector3(0.0, -0.27, -0.225),
+            new THREE.Vector3(0.278, -0.185, -0.165),
+            new THREE.Vector3(0.358, 0.075, -0.045)
+          ]);
+          const chinStrap = new THREE.Mesh(new THREE.TubeGeometry(strapCurve, 20, 0.014, 8, false), lqStrapMat);
+          lqHelmet.add(chinStrap);
+
+          // Phù hiệu tròn nền đỏ viền vàng + ngôi sao vàng 5 cánh chính giữa trán mũ
+          const lqBadgeCanvas = document.createElement("canvas");
+          lqBadgeCanvas.width = 128;
+          lqBadgeCanvas.height = 128;
+          const lctx = lqBadgeCanvas.getContext("2d");
+          lctx.clearRect(0, 0, 128, 128);
+          lctx.fillStyle = "#dc2626";
+          lctx.beginPath();
+          lctx.arc(64, 64, 50, 0, Math.PI * 2);
+          lctx.fill();
+          lctx.strokeStyle = "#facc15";
+          lctx.lineWidth = 7;
+          lctx.beginPath();
+          lctx.arc(64, 64, 46, 0, Math.PI * 2);
+          lctx.stroke();
+          drawFivePointStar(lctx, 64, 64, 30, 12, "#facc15", "#fef08a", 1.5);
+
+          const lqBadgeTex = new THREE.CanvasTexture(lqBadgeCanvas);
+          lqBadgeTex.colorSpace = THREE.SRGBColorSpace;
+          const lqBadgeMat = new THREE.MeshBasicMaterial({ map: lqBadgeTex, transparent: true, side: THREE.DoubleSide });
+          const lqBadgeMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.155, 0.155), lqBadgeMat);
+          lqBadgeMesh.position.set(0, 0.214, -0.418);
+          lqBadgeMesh.rotation.y = Math.PI;
+          lqBadgeMesh.rotation.x = 0.24;
+
+          lqHelmet.add(dome, brimFlare, brimLip, crownKnob, lqBadgeMesh);
+          playerHeadMesh.add(lqHelmet);
+        }
+        lqHelmet.visible = isLucQuan;
+      }
+
+      // Cầu vai / cấp hiệu đỏ viền vàng nổi 3D ở hai bên vai áo Lục Quân
+      if (playerBodyMesh) {
+        let lqEpaulettes = playerBodyMesh.getObjectByName("lucQuanEpaulettesGroup");
+        if (!lqEpaulettes) {
+          lqEpaulettes = new THREE.Group();
+          lqEpaulettes.name = "lucQuanEpaulettesGroup";
+          const epRedMat = new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.46, metalness: 0.05 });
+          const epGoldMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.28, metalness: 0.84 });
+
+          for (const s of [-1, 1]) {
+            const board = new THREE.Mesh(new THREE.BoxGeometry(0.115, 0.034, 0.25), epRedMat);
+            board.position.set(s * 0.335, 0.376, -0.01);
+            board.rotation.z = -s * 0.16;
+            board.castShadow = true;
+
+            const goldBorder = new THREE.Mesh(new THREE.BoxGeometry(0.124, 0.022, 0.258), epGoldMat);
+            goldBorder.position.set(s * 0.335, 0.372, -0.01);
+            goldBorder.rotation.z = -s * 0.16;
+
+            const goldBar = new THREE.Mesh(new THREE.BoxGeometry(0.068, 0.040, 0.03), epGoldMat);
+            goldBar.position.set(s * 0.335, 0.384, -0.065);
+            goldBar.rotation.z = -s * 0.16;
+
+            lqEpaulettes.add(goldBorder, board, goldBar);
+          }
+          playerBodyMesh.add(lqEpaulettes);
+        }
+        lqEpaulettes.visible = isLucQuan;
+      }
+
+      // Tay áo rằn ri Lục Quân 3D ôm trọn cánh tay trái/phải
+      for (const s of [-1, 1]) {
+        const armMesh = s < 0 ? playerLeftArm : playerRightArm;
+        if (!armMesh) continue;
+        const sleeveName = s < 0 ? "lucQuanLeftSleeve" : "lucQuanRightSleeve";
+        let sleeveGroup = armMesh.getObjectByName(sleeveName);
+        if (!sleeveGroup) {
+          sleeveGroup = new THREE.Group();
+          sleeveGroup.name = sleeveName;
+          const sleeveCamoTex = createLucQuanCamoTexture(256, 256, s < 0 ? 3 : 7);
+          const sleeveMat = new THREE.MeshStandardMaterial({
+            map: sleeveCamoTex,
+            roughness: 0.62,
+            metalness: 0.03
+          });
+          const sleeveGeo = new THREE.CylinderGeometry(0.148, 0.132, 0.56, 24, 1, false);
+          const sleeveCyl = new THREE.Mesh(sleeveGeo, sleeveMat);
+          sleeveCyl.position.set(0, 0.04, 0);
+          sleeveCyl.castShadow = true;
+
+          const cuffMat = new THREE.MeshStandardMaterial({ color: 0x24331d, roughness: 0.68, metalness: 0.04 });
+          const cuffRing = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.135, 0.045, 24), cuffMat);
+          cuffRing.position.set(0, -0.23, 0);
+
+          sleeveGroup.add(sleeveCyl, cuffRing);
+          armMesh.add(sleeveGroup);
+        }
+        sleeveGroup.visible = isLucQuan;
+      }
+
+      // Quần rằn ri Lục Quân 3D dài phủ cả hai chân kèm đường chỉ & túi hộp hai bên đùi
+      for (const s of [-1, 1]) {
+        const legMesh = s < 0 ? playerLeftLeg : playerRightLeg;
+        if (!legMesh) continue;
+        const pantsName = s < 0 ? "lucQuanLeftPants" : "lucQuanRightPants";
+        let pantsGroup = legMesh.getObjectByName(pantsName);
+        if (!pantsGroup) {
+          pantsGroup = new THREE.Group();
+          pantsGroup.name = pantsName;
+          const legCamoTex = createLucQuanCamoTexture(256, 256, s < 0 ? 11 : 15);
+          const pantsMat = new THREE.MeshStandardMaterial({
+            map: legCamoTex,
+            roughness: 0.65,
+            metalness: 0.03
+          });
+
+          const thighTrousers = new THREE.Mesh(new THREE.CylinderGeometry(0.182, 0.164, 0.44, 24), pantsMat);
+          thighTrousers.position.set(0, 0.16, 0);
+          thighTrousers.castShadow = true;
+
+          const shinTrousers = new THREE.Mesh(new THREE.CylinderGeometry(0.162, 0.142, 0.42, 24), pantsMat);
+          shinTrousers.position.set(0, -0.23, 0);
+          shinTrousers.castShadow = true;
+
+          const cargoMat = new THREE.MeshStandardMaterial({ color: 0x384a24, roughness: 0.68, metalness: 0.04 });
+          const cargoPocket = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.16, 0.16), cargoMat);
+          cargoPocket.position.set(s * 0.165, 0.04, 0);
+          cargoPocket.castShadow = true;
+
+          pantsGroup.add(thighTrousers, shinTrousers, cargoPocket);
+          legMesh.add(pantsGroup);
+        }
+        pantsGroup.visible = isLucQuan;
+      }
+
+      // Mũ Kê-pi lễ phục Quân đội Nhân dân Việt Nam: chóp xanh rêu sẫm, đai đỏ tươi, dây & viền vàng kim, phù hiệu sao vàng trên nền đỏ
+      if (playerHeadMesh) {
+        let qdKepi = playerHeadMesh.getObjectByName("quanDoiKepiGroup");
+        if (!qdKepi) {
+          qdKepi = new THREE.Group();
+          qdKepi.name = "quanDoiKepiGroup";
+
+          const kepiGreenMat = new THREE.MeshStandardMaterial({ color: 0x2d4f38, roughness: 0.56, metalness: 0.04 });
+          const kepiRedBandMat = new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.50, metalness: 0.04 });
+          const kepiGoldMat = new THREE.MeshStandardMaterial({ color: 0xeab308, roughness: 0.28, metalness: 0.85 });
+          const kepiVisorMat = new THREE.MeshStandardMaterial({ color: 0x111827, roughness: 0.25, metalness: 0.35 });
+
+          const crownTop = new THREE.Mesh(new THREE.CylinderGeometry(0.395, 0.378, 0.055, 32), kepiGreenMat);
+          crownTop.scale.set(1.0, 1.0, 1.12);
+          crownTop.position.set(0, 0.345, -0.02);
+          crownTop.castShadow = true;
+
+          const crownGoldPiping = new THREE.Mesh(new THREE.TorusGeometry(0.386, 0.008, 8, 32), kepiGoldMat);
+          crownGoldPiping.rotation.x = Math.PI / 2;
+          crownGoldPiping.scale.set(1.0, 1.12, 1.0);
+          crownGoldPiping.position.set(0, 0.370, -0.02);
+
+          const redBand = new THREE.Mesh(new THREE.CylinderGeometry(0.365, 0.368, 0.115, 32), kepiRedBandMat);
+          redBand.scale.set(0.98, 1.0, 1.08);
+          redBand.position.set(0, 0.275, -0.015);
+          redBand.castShadow = true;
+
+          const goldCord = new THREE.Mesh(new THREE.TorusGeometry(0.368, 0.014, 10, 28, Math.PI * 0.85), kepiGoldMat);
+          goldCord.rotation.x = Math.PI / 2;
+          goldCord.rotation.z = Math.PI * 0.075;
+          goldCord.scale.set(0.99, 1.09, 1.0);
+          goldCord.position.set(0, 0.222, -0.015);
+
+          for (const s of [-1, 1]) {
+            const sideGoldBtn = new THREE.Mesh(new THREE.SphereGeometry(0.022, 10, 10), kepiGoldMat);
+            sideGoldBtn.position.set(s * 0.358, 0.232, -0.03);
+            qdKepi.add(sideGoldBtn);
+          }
+
+          const visorGeo = new THREE.CylinderGeometry(0.32, 0.38, 0.022, 28, 1, false, Math.PI * 0.64, Math.PI * 0.72);
+          visorGeo.scale(1.04, 1.0, 1.34);
+          const visor = new THREE.Mesh(visorGeo, kepiVisorMat);
+          visor.position.set(0, 0.212, -0.155);
+          visor.rotation.x = 0.22;
+          visor.castShadow = true;
+
+          const visorGoldTrim = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.38, 0.384, 0.025, 28, 1, true, Math.PI * 0.64, Math.PI * 0.72),
+            kepiGoldMat
+          );
+          visorGoldTrim.scale.set(1.04, 1.0, 1.34);
+          visorGoldTrim.position.set(0, 0.212, -0.155);
+          visorGoldTrim.rotation.x = 0.22;
+
+          const kBadgeCanvas = document.createElement("canvas");
+          kBadgeCanvas.width = 128;
+          kBadgeCanvas.height = 128;
+          const kbctx = kBadgeCanvas.getContext("2d");
+          kbctx.clearRect(0, 0, 128, 128);
+          kbctx.fillStyle = "#dc2626";
+          kbctx.beginPath();
+          kbctx.arc(64, 64, 46, 0, Math.PI * 2);
+          kbctx.fill();
+          kbctx.strokeStyle = "#facc15";
+          kbctx.lineWidth = 6;
+          kbctx.beginPath();
+          kbctx.arc(64, 64, 43, 0, Math.PI * 2);
+          kbctx.stroke();
+          drawFivePointStar(kbctx, 64, 64, 28, 11, "#facc15", "#fef08a", 1.5);
+
+          const kBadgeTex = new THREE.CanvasTexture(kBadgeCanvas);
+          kBadgeTex.colorSpace = THREE.SRGBColorSpace;
+          const kBadgeMat = new THREE.MeshBasicMaterial({ map: kBadgeTex, transparent: true, side: THREE.DoubleSide });
+          const kBadgeMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.145, 0.145), kBadgeMat);
+          kBadgeMesh.position.set(0, 0.285, -0.398);
+          kBadgeMesh.rotation.y = Math.PI;
+          kBadgeMesh.rotation.x = 0.10;
+
+          qdKepi.add(crownTop, crownGoldPiping, redBand, goldCord, visor, visorGoldTrim, kBadgeMesh);
+          playerHeadMesh.add(qdKepi);
+        }
+        qdKepi.visible = isQuanDoi;
+      }
+
+      // Mũ Dân quân thiết kế lại chuẩn phom: chóp mũ vải mềm có đường may múi, vành mũ ôm sát, lưỡi trai cong & phù hiệu sao vàng nền đỏ viền vàng thoi
+      if (playerHeadMesh) {
+        let dqCap = playerHeadMesh.getObjectByName("danQuanCapGroup");
+        if (!dqCap) {
+          dqCap = new THREE.Group();
+          dqCap.name = "danQuanCapGroup";
+
+          const capShirtColorHex = (outfit && outfit.shirt) ? outfit.shirt : "#00b8f0";
+          const capMainMat = new THREE.MeshStandardMaterial({ color: capShirtColorHex, roughness: 0.62, metalness: 0.03 });
+          const capDarkMat = new THREE.MeshStandardMaterial({ color: 0x0084b0, roughness: 0.68, metalness: 0.04 });
+          const capLightMat = new THREE.MeshStandardMaterial({ color: 0x29caff, roughness: 0.58, metalness: 0.03 });
+          dqCap.userData = { capMainMat, capDarkMat, capLightMat };
+
+          // Chóp mũ mềm ôm trọn phần đầu trên (không để lộ tóc khi mặc đồ Dân Quân)
+          const crownGeo = new THREE.SphereGeometry(0.365, 32, 22, 0, Math.PI * 2, 0, Math.PI * 0.58);
+          crownGeo.scale(0.98, 0.96, 1.05);
+          const crown = new THREE.Mesh(crownGeo, capMainMat);
+          crown.position.set(0, 0.052, -0.01);
+          crown.castShadow = true;
+
+          // 6 đường chỉ may múi chóp mũ chạy đều từ đỉnh xuống vành mũ
+          for (let i = 0; i < 6; i++) {
+            const ang = (i / 6) * Math.PI * 2;
+            const seamCurve = new THREE.CatmullRomCurve3([
+              new THREE.Vector3(Math.cos(ang) * 0.045, 0.402, -0.01 + Math.sin(ang) * 0.045),
+              new THREE.Vector3(Math.cos(ang) * 0.235, 0.315, -0.01 + Math.sin(ang) * 0.245),
+              new THREE.Vector3(Math.cos(ang) * 0.350, 0.135, -0.01 + Math.sin(ang) * 0.370)
+            ]);
+            const seam = new THREE.Mesh(new THREE.TubeGeometry(seamCurve, 12, 0.0055, 6, false), capDarkMat);
+            dqCap.add(seam);
+          }
+
+          // Cúc bọc vải đỉnh mũ
+          const topButton = new THREE.Mesh(new THREE.SphereGeometry(0.022, 12, 12), capDarkMat);
+          topButton.position.set(0, 0.406, -0.01);
+
+          // Vành đai thân mũ ôm gọn quanh đầu & thái dương
+          const bandGeo = new THREE.CylinderGeometry(0.354, 0.360, 0.092, 32, 1, false);
+          bandGeo.scale(0.98, 1.0, 1.05);
+          const band = new THREE.Mesh(bandGeo, capMainMat);
+          band.position.set(0, 0.094, -0.01);
+          band.castShadow = true;
+
+          // Đường chỉ nổi trên & mép dưới vành mũ
+          const bandTopTrim = new THREE.Mesh(new THREE.TorusGeometry(0.354, 0.0065, 8, 32), capLightMat);
+          bandTopTrim.rotation.x = Math.PI / 2;
+          bandTopTrim.scale.set(0.98, 1.05, 1.0);
+          bandTopTrim.position.set(0, 0.140, -0.01);
+
+          const bandBotTrim = new THREE.Mesh(new THREE.TorusGeometry(0.360, 0.0085, 8, 32), capDarkMat);
+          bandBotTrim.rotation.x = Math.PI / 2;
+          bandBotTrim.scale.set(0.98, 1.05, 1.0);
+          bandBotTrim.position.set(0, 0.048, -0.01);
+
+          // Lưỡi trai mũ cong rủ nhẹ phía trước (-Z)
+          const brimGeo = new THREE.CylinderGeometry(0.312, 0.356, 0.022, 28, 1, false, Math.PI * 0.65, Math.PI * 0.70);
+          brimGeo.scale(1.02, 1.0, 1.28);
+          const brim = new THREE.Mesh(brimGeo, capDarkMat);
+          brim.position.set(0, 0.062, -0.148);
+          brim.rotation.x = 0.17;
+          brim.castShadow = true;
+
+          // Viền mép lưỡi trai
+          const brimEdge = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.356, 0.359, 0.024, 28, 1, true, Math.PI * 0.65, Math.PI * 0.70),
+            capLightMat
+          );
+          brimEdge.scale.set(1.02, 1.0, 1.28);
+          brimEdge.position.set(0, 0.062, -0.148);
+          brimEdge.rotation.x = 0.17;
+
+          // Hai cúc cài bên hông mũ sát chân lưỡi trai
+          for (const s of [-1, 1]) {
+            const sideBtn = new THREE.Mesh(new THREE.SphereGeometry(0.024, 12, 12), capDarkMat);
+            sideBtn.scale.set(0.75, 1.0, 1.0);
+            sideBtn.position.set(s * 0.346, 0.092, -0.125);
+            dqCap.add(sideBtn);
+          }
+
+          // Phù hiệu hình thoi nền đỏ, viền vàng, sao vàng 5 cánh gắn chính giữa phía trước mũ
+          const badgeCanvas = document.createElement("canvas");
+          badgeCanvas.width = 128;
+          badgeCanvas.height = 128;
+          const bctx = badgeCanvas.getContext("2d");
+          bctx.clearRect(0, 0, 128, 128);
+          bctx.save();
+          bctx.translate(64, 64);
+          bctx.beginPath();
+          bctx.moveTo(0, -54); bctx.lineTo(54, 0); bctx.lineTo(0, 54); bctx.lineTo(-54, 0);
+          bctx.closePath();
+          bctx.fillStyle = "#facc15";
+          bctx.fill();
+          bctx.beginPath();
+          bctx.moveTo(0, -43); bctx.lineTo(43, 0); bctx.lineTo(0, 43); bctx.lineTo(-43, 0);
+          bctx.closePath();
+          bctx.fillStyle = "#dc2626";
+          bctx.fill();
+          bctx.strokeStyle = "#fde047";
+          bctx.lineWidth = 3;
+          bctx.beginPath();
+          bctx.arc(0, 0, 22, 0, Math.PI * 2);
+          bctx.stroke();
+          bctx.restore();
+          drawFivePointStar(bctx, 64, 64, 19, 7.5, "#facc15", "#fef08a", 1.5);
+
+          const badgeTex = new THREE.CanvasTexture(badgeCanvas);
+          badgeTex.colorSpace = THREE.SRGBColorSpace;
+          const badgeMat = new THREE.MeshBasicMaterial({ map: badgeTex, transparent: true, side: THREE.DoubleSide });
+          const badgeMesh = new THREE.Mesh(new THREE.PlaneGeometry(0.145, 0.145), badgeMat);
+          badgeMesh.position.set(0, 0.212, -0.372);
+          badgeMesh.rotation.y = Math.PI;
+          badgeMesh.rotation.x = 0.22;
+
+          dqCap.add(crown, topButton, band, bandTopTrim, bandBotTrim, brim, brimEdge, badgeMesh);
+          playerHeadMesh.add(dqCap);
+        }
+        if (dqCap.userData && dqCap.userData.capMainMat && outfit && outfit.shirt) {
+          dqCap.userData.capMainMat.color.set(outfit.shirt);
+        }
+        dqCap.visible = isDanQuan;
+      }
+      // Súng trường AK-47 chi tiết chuẩn thực tế vác chéo rõ nét sau lưng (+Z) cho bộ Dân Quân
+      if (playerBodyMesh) {
+        let akGroup = playerBodyMesh.getObjectByName("danQuanAk47Group");
+        if (!akGroup) {
+          akGroup = new THREE.Group();
+          akGroup.name = "danQuanAk47Group";
+
+          const gunmetalMat = new THREE.MeshStandardMaterial({ color: 0x252c34, roughness: 0.30, metalness: 0.86 });
+          const darkBluedMat = new THREE.MeshStandardMaterial({ color: 0x11151a, roughness: 0.38, metalness: 0.82 });
+          const chromeSteelMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.22, metalness: 0.92 });
+          const walnutWoodMat = new THREE.MeshStandardMaterial({ color: 0x9c4a14, roughness: 0.46, metalness: 0.06 });
+          const darkWoodMat = new THREE.MeshStandardMaterial({ color: 0x6b2f0b, roughness: 0.54, metalness: 0.05 });
+          const slingOliveMat = new THREE.MeshStandardMaterial({ color: 0x2b3324, roughness: 0.72, metalness: 0.06 });
+
+          // 1. Hộp khóa nòng (Receiver) & nắp che khóa nòng có gân dập nổi
+          const receiver = new THREE.Mesh(new THREE.BoxGeometry(0.072, 0.115, 0.44), gunmetalMat);
+          receiver.position.set(0, 0.02, 0.02);
+          receiver.castShadow = true;
+
+          const dustCover = new THREE.Mesh(
+            new THREE.CylinderGeometry(0.038, 0.038, 0.42, 16, 1, false, 0, Math.PI),
+            gunmetalMat
+          );
+          dustCover.rotation.z = Math.PI / 2;
+          dustCover.rotation.y = Math.PI / 2;
+          dustCover.position.set(0, 0.074, 0.03);
+          dustCover.castShadow = true;
+
+          // 3 gân dập nổi đặc trưng trên nắp hộp khóa nòng AK-47
+          for (const gx of [-0.018, 0, 0.018]) {
+            const rib = new THREE.Mesh(new THREE.BoxGeometry(0.006, 0.010, 0.36), darkBluedMat);
+            rib.position.set(gx, 0.111, 0.03);
+            akGroup.add(rib);
+          }
+
+          // Cần khóa an toàn / chọn chế độ bắn bên phải thân súng
+          const selectorLever = new THREE.Mesh(new THREE.BoxGeometry(0.010, 0.018, 0.14), darkBluedMat);
+          selectorLever.position.set(0.041, 0.036, 0.08);
+
+          // 2. Báng súng gỗ đặc trưng AK-47 vát góc + đệm cao su/thép cuối báng
+          const stockLower = new THREE.Mesh(new THREE.BoxGeometry(0.056, 0.125, 0.34), walnutWoodMat);
+          stockLower.position.set(0, -0.028, 0.39);
+          stockLower.rotation.x = 0.22;
+          stockLower.castShadow = true;
+
+          const stockComb = new THREE.Mesh(new THREE.BoxGeometry(0.054, 0.042, 0.28), darkWoodMat);
+          stockComb.position.set(0, 0.032, 0.37);
+          stockComb.rotation.x = 0.06;
+
+          const buttPlate = new THREE.Mesh(new THREE.BoxGeometry(0.060, 0.145, 0.026), darkBluedMat);
+          buttPlate.position.set(0, -0.066, 0.555);
+          buttPlate.rotation.x = 0.22;
+          buttPlate.castShadow = true;
+
+          // 3. Tay cầm (Pistol grip) gỗ sẫm + cò súng & vòng bảo vệ cò
+          const pistolGrip = new THREE.Mesh(new THREE.BoxGeometry(0.046, 0.135, 0.068), darkWoodMat);
+          pistolGrip.position.set(0, -0.098, 0.16);
+          pistolGrip.rotation.x = -0.34;
+          pistolGrip.castShadow = true;
+
+          const triggerGuard = new THREE.Mesh(new THREE.BoxGeometry(0.034, 0.045, 0.075), darkBluedMat);
+          triggerGuard.position.set(0, -0.056, 0.075);
+
+          const triggerBlade = new THREE.Mesh(new THREE.BoxGeometry(0.010, 0.034, 0.014), chromeSteelMat);
+          triggerBlade.position.set(0, -0.052, 0.085);
+          triggerBlade.rotation.x = 0.35;
+
+          // 4. Băng đạn cong 7.62x39mm đặc trưng của AK-47
+          const magCurve = new THREE.CatmullRomCurve3([
+            new THREE.Vector3(0, -0.032, 0.015),
+            new THREE.Vector3(0, -0.145, -0.025),
+            new THREE.Vector3(0, -0.255, -0.105),
+            new THREE.Vector3(0, -0.335, -0.215)
+          ]);
+          const magGeo = new THREE.TubeGeometry(magCurve, 18, 0.029, 12, false);
+          magGeo.scale(0.92, 1.0, 1.38);
+          const magazine = new THREE.Mesh(magGeo, gunmetalMat);
+          magazine.castShadow = true;
+
+          // Gân dập ngang trên thân băng đạn AK-47
+          for (const tPos of [0.28, 0.55, 0.80]) {
+            const pt = magCurve.getPoint(tPos);
+            const magRib = new THREE.Mesh(new THREE.BoxGeometry(0.058, 0.010, 0.078), darkBluedMat);
+            magRib.position.set(pt.x, pt.y, pt.z);
+            magRib.rotation.x = 0.65;
+            akGroup.add(magRib);
+          }
+
+          // 5. Ốp lót tay gỗ trước + ống trích khí phía trên + thước ngắm
+          const lowerHandguard = new THREE.Mesh(new THREE.BoxGeometry(0.066, 0.058, 0.27), walnutWoodMat);
+          lowerHandguard.position.set(0, -0.008, -0.33);
+          lowerHandguard.castShadow = true;
+
+          const upperHandguard = new THREE.Mesh(new THREE.BoxGeometry(0.062, 0.044, 0.25), darkWoodMat);
+          upperHandguard.position.set(0, 0.048, -0.32);
+          upperHandguard.castShadow = true;
+
+          const gasTube = new THREE.Mesh(new THREE.CylinderGeometry(0.021, 0.021, 0.28, 14), gunmetalMat);
+          gasTube.rotation.x = Math.PI / 2;
+          gasTube.position.set(0, 0.064, -0.33);
+
+          const gasBlock = new THREE.Mesh(new THREE.BoxGeometry(0.044, 0.062, 0.052), darkBluedMat);
+          gasBlock.position.set(0, 0.052, -0.46);
+
+          const rearSight = new THREE.Mesh(new THREE.BoxGeometry(0.046, 0.036, 0.055), darkBluedMat);
+          rearSight.position.set(0, 0.088, -0.15);
+
+          // 6. Nòng súng, đầu ruồi & đầu bù giật vát chéo đặc trưng AK-47
+          const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.018, 0.40, 14), darkBluedMat);
+          barrel.rotation.x = Math.PI / 2;
+          barrel.position.set(0, 0.038, -0.62);
+          barrel.castShadow = true;
+
+          const frontSightBase = new THREE.Mesh(new THREE.BoxGeometry(0.026, 0.064, 0.042), darkBluedMat);
+          frontSightBase.position.set(0, 0.062, -0.74);
+
+          const frontSightPost = new THREE.Mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.024, 8), chromeSteelMat);
+          frontSightPost.position.set(0, 0.102, -0.74);
+
+          const slantBrake = new THREE.Mesh(new THREE.CylinderGeometry(0.021, 0.021, 0.082, 14), gunmetalMat);
+          slantBrake.rotation.x = Math.PI / 2;
+          slantBrake.position.set(0, 0.038, -0.84);
+          slantBrake.rotation.z = 0.34;
+
+          // 7. Dây đeo súng vải dù vắt chéo rõ nét qua vai & lưng
+          const sling = new THREE.Mesh(new THREE.TorusGeometry(0.35, 0.013, 10, 32), slingOliveMat);
+          sling.position.set(0.0, 0.02, -0.14);
+          sling.rotation.y = Math.PI / 2 - 0.32;
+          sling.rotation.x = 0.42;
+
+          akGroup.add(
+            receiver, dustCover, selectorLever,
+            stockLower, stockComb, buttPlate,
+            pistolGrip, triggerGuard, triggerBlade,
+            magazine, lowerHandguard, upperHandguard, gasTube, gasBlock, rearSight,
+            barrel, frontSightBase, frontSightPost, slantBrake, sling
+          );
+
+          // Vác chéo rõ ràng, nổi khối phía sau lưng (+Z) để thấy trọn vẹn dáng súng AK-47 từ góc nhìn sau
+          akGroup.position.set(0.03, 0.06, 0.355);
+          akGroup.rotation.set(0.06, 0.12, -0.58);
+          akGroup.scale.setScalar(1.26);
+
+          playerBodyMesh.add(akGroup);
+        }
+        akGroup.visible = isDanQuan;
       }
 
       if (hasAnyMaleShorts) {
@@ -5145,42 +6460,336 @@
       const pantsMat = new THREE.MeshStandardMaterial({ color: v.pants || "#1e293b", roughness: 0.7 });
       const hatMat = new THREE.MeshStandardMaterial({ color: v.hat || "#1e40af", roughness: 0.45 });
 
-      playerBodyMesh = new THREE.Mesh(new THREE.BoxGeometry(0.88, 1.05, 0.52), shirtMat);
+      const ssSkinMat = new THREE.MeshStandardMaterial({ color: 0xf6c89f, roughness: 0.52, metalness: 0.03 });
+      const ssShirtMat = new THREE.MeshStandardMaterial({ color: v.shirt || "#2563eb", roughness: 0.42, metalness: 0.08 });
+      const ssSleeveMat = new THREE.MeshStandardMaterial({ color: v.sleeve || "#1d4ed8", roughness: 0.46, metalness: 0.08 });
+      const ssPantsMat = new THREE.MeshStandardMaterial({ color: v.pants || "#1e293b", roughness: 0.58, metalness: 0.06 });
+      const ssHatMat = new THREE.MeshStandardMaterial({ color: v.hat || "#1e40af", roughness: 0.36, metalness: 0.14 });
+      const ssWhiteMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.34, metalness: 0.06 });
+      const ssAccentMat = new THREE.MeshStandardMaterial({ color: v.shortsStripe || "#38bdf8", roughness: 0.32, metalness: 0.14 });
+      const ssEyeWhiteMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.15 });
+      const ssIrisMat = new THREE.MeshStandardMaterial({ color: 0x1d4ed8, roughness: 0.18 });
+      const ssPupilMat = new THREE.MeshStandardMaterial({ color: 0x090d16, roughness: 0.10 });
+      const ssBrowMat = new THREE.MeshStandardMaterial({ color: 0x24130b, roughness: 0.58 });
+      const ssLipMat = new THREE.MeshStandardMaterial({ color: 0xd96b52, roughness: 0.38, metalness: 0.04 });
+      const ssShoeUpperMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.38, metalness: 0.12 });
+      const ssShoeSoleMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.32, metalness: 0.06 });
+
+      function buildSubwayLathe(pts, segs = 36, sx = 1.0, sz = 1.0) {
+        const g = new THREE.LatheGeometry(pts.map(([r, y]) => new THREE.Vector2(Math.max(0.004, r), y)), segs);
+        g.scale(sx, 1, sz);
+        g.computeVertexNormals();
+        return g;
+      }
+
+      // Thân áo thể thao gọn gàng, bề mặt phẳng-mượt không lẹm/che chữ tên áo & số áo
+      playerBodyMesh = new THREE.Group();
       playerBodyMesh.position.set(0, 1.32, 0);
-      playerBodyMesh.castShadow = true;
+      playerBodyMesh.material = ssShirtMat;
+      const maleTorsoPts = [
+        [0.008, -0.50], [0.245, -0.44], [0.278, -0.28], [0.265, -0.13],
+        [0.295,  0.02], [0.352,  0.18], [0.392,  0.33], [0.325,  0.43],
+        [0.165,  0.48], [0.008,  0.51]
+      ];
+      const maleTorsoMesh = new THREE.Mesh(buildSubwayLathe(maleTorsoPts, 36, 1.12, 0.62), ssShirtMat);
+      maleTorsoMesh.castShadow = true;
+      maleTorsoMesh.receiveShadow = true;
+
+      const ssCollar = new THREE.Mesh(new THREE.TorusGeometry(0.142, 0.015, 12, 28), ssWhiteMat);
+      ssCollar.rotation.x = Math.PI / 2 - 0.10;
+      ssCollar.scale.set(1.08, 0.84, 1.0);
+      ssCollar.position.set(0, 0.485, -0.005);
+
+      const ssNeck = new THREE.Mesh(new THREE.CylinderGeometry(0.098, 0.122, 0.24, 20), ssSkinMat);
+      ssNeck.position.set(0, 0.56, -0.01);
+      ssNeck.castShadow = true;
+
+      const ssPelvis = new THREE.Mesh(new THREE.SphereGeometry(0.295, 24, 18), ssPantsMat);
+      ssPelvis.scale.set(1.08, 0.52, 0.66);
+      ssPelvis.position.set(0, -0.45, 0);
+      ssPelvis.castShadow = true;
+
+      const ssBelt = new THREE.Mesh(new THREE.CylinderGeometry(0.275, 0.298, 0.062, 28), ssAccentMat);
+      ssBelt.scale.set(1.08, 1.0, 0.66);
+      ssBelt.position.set(0, -0.40, 0);
+
+      playerBodyMesh.add(maleTorsoMesh, ssCollar, ssNeck, ssPelvis, ssBelt);
       playerGroup.add(playerBodyMesh);
 
-      playerHeadMesh = new THREE.Mesh(new THREE.SphereGeometry(0.36, 18, 18), skinMat);
+      // Đầu nhân vật nam biểu cảm sắc nét kiểu Subway Surfers
+      playerHeadMesh = new THREE.Group();
       playerHeadMesh.position.set(0, 2.24, 0);
-      playerHeadMesh.castShadow = true;
+      playerHeadMesh.material = ssSkinMat;
+
+      const ssHeadGeo = new THREE.SphereGeometry(0.34, 28, 24);
+      ssHeadGeo.scale(0.94, 1.06, 1.02);
+      const ssHeadCore = new THREE.Mesh(ssHeadGeo, ssSkinMat);
+      ssHeadCore.position.set(0, 0, -0.01);
+      ssHeadCore.castShadow = true;
+      playerHeadMesh.add(ssHeadCore);
+
+      for (const s of [-1, 1]) {
+        const earGrp = new THREE.Group();
+        const outerEar = new THREE.Mesh(new THREE.SphereGeometry(0.064, 14, 14), ssSkinMat);
+        outerEar.scale.set(0.46, 1.18, 0.88);
+        const innerEar = new THREE.Mesh(new THREE.SphereGeometry(0.036, 10, 10), ssLipMat);
+        innerEar.scale.set(0.42, 0.92, 0.65);
+        innerEar.position.set(-s * 0.012, 0, -0.006);
+        earGrp.add(outerEar, innerEar);
+        earGrp.position.set(s * 0.312, -0.01, 0);
+        earGrp.rotation.z = -s * 0.12;
+        playerHeadMesh.add(earGrp);
+
+        const eyeGrp = new THREE.Group();
+        const sclera = new THREE.Mesh(new THREE.SphereGeometry(0.060, 16, 16), ssEyeWhiteMat);
+        sclera.scale.set(1.06, 0.92, 0.68);
+        const iris = new THREE.Mesh(new THREE.SphereGeometry(0.034, 14, 14), ssIrisMat);
+        iris.scale.set(1.0, 1.0, 0.56);
+        iris.position.set(0, 0, -0.028);
+        const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.017, 12, 12), ssPupilMat);
+        pupil.scale.set(1.0, 1.0, 0.56);
+        pupil.position.set(0, 0, -0.034);
+        const lid = new THREE.Mesh(new THREE.TorusGeometry(0.054, 0.011, 8, 16, Math.PI), ssBrowMat);
+        lid.position.set(0, 0.008, -0.024);
+        eyeGrp.add(sclera, iris, pupil, lid);
+        eyeGrp.position.set(s * 0.114, 0.030, -0.312);
+        eyeGrp.rotation.y = -s * 0.14;
+        playerHeadMesh.add(eyeGrp);
+
+        const brow = new THREE.Mesh(new THREE.CapsuleGeometry(0.014, 0.072, 6, 10), ssBrowMat);
+        brow.rotation.z = Math.PI / 2 - s * 0.12;
+        brow.position.set(s * 0.116, 0.112, -0.318);
+
+        const jaw = new THREE.Mesh(new THREE.CapsuleGeometry(0.044, 0.14, 6, 10), ssSkinMat);
+        jaw.position.set(s * 0.158, -0.175, -0.155);
+        jaw.rotation.x = 0.65;
+        jaw.rotation.z = -s * 0.28;
+        playerHeadMesh.add(brow, jaw);
+      }
+
+      const ssNoseBridge = new THREE.Mesh(new THREE.CapsuleGeometry(0.021, 0.056, 6, 10), ssSkinMat);
+      ssNoseBridge.rotation.x = -0.22;
+      ssNoseBridge.position.set(0, -0.012, -0.340);
+      const ssNoseTip = new THREE.Mesh(new THREE.SphereGeometry(0.034, 12, 12), ssSkinMat);
+      ssNoseTip.scale.set(1.08, 0.90, 1.12);
+      ssNoseTip.position.set(0, -0.046, -0.356);
+      const ssMouth = new THREE.Mesh(new THREE.TorusGeometry(0.054, 0.014, 10, 18, Math.PI), ssLipMat);
+      ssMouth.rotation.x = Math.PI;
+      ssMouth.position.set(0, -0.122, -0.318);
+      playerHeadMesh.add(ssNoseBridge, ssNoseTip, ssMouth);
       playerGroup.add(playerHeadMesh);
 
-      playerHatMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.37, 0.39, 0.24, 18), hatMat);
-      playerHatMesh.position.set(0, 2.52, 0.03);
-      playerHatMesh.castShadow = true;
+      // Tóc nam thiết kế chân thực, tự nhiên (giữ màu tóc tự nhiên, tạo lọn tóc uốn cong mượt mà)
+      playerHatMesh = new THREE.Group();
+      playerHatMesh.position.set(0, 2.24, 0);
+
+      const realHairBaseMat = new THREE.MeshStandardMaterial({ color: 0x23140c, roughness: 0.58, metalness: 0.04 });
+      const realHairMidMat = new THREE.MeshStandardMaterial({ color: 0x382013, roughness: 0.52, metalness: 0.06 });
+      const realHairTipMat = new THREE.MeshStandardMaterial({ color: 0x4b2c1a, roughness: 0.48, metalness: 0.07 });
+      playerHatMesh.material = realHairBaseMat;
+      playerHatMesh.userData.isNaturalHair = true;
+
+      function makeHairLock(pts3, radius, mat) {
+        const curve = new THREE.CatmullRomCurve3(pts3.map(([x, y, z]) => new THREE.Vector3(x, y, z)));
+        const geo = new THREE.TubeGeometry(curve, 16, radius, 10, false);
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        return mesh;
+      }
+
+      // Lớp tóc ôm gọn phần đầu (không tạo cảm giác khối mũ tròn cứng)
+      const innerHairCap = new THREE.Mesh(
+        new THREE.SphereGeometry(0.326, 24, 18, 0, Math.PI * 2, 0, Math.PI * 0.58),
+        realHairBaseMat
+      );
+      innerHairCap.scale.set(0.91, 1.03, 1.01);
+      innerHairCap.position.set(0, 0.015, -0.01);
+      innerHairCap.castShadow = true;
+      playerHatMesh.add(innerHairCap);
+
+      // Các lọn tóc chải lệch & rủ tự nhiên phía trước + đỉnh đầu
+      const frontLocks = [
+        { pts: [[-0.04, 0.34, -0.08], [-0.08, 0.31, -0.22], [-0.14, 0.22, -0.31], [-0.17, 0.14, -0.31]], r: 0.036, m: realHairMidMat },
+        { pts: [[0.03, 0.345, -0.06], [-0.01, 0.315, -0.21], [-0.06, 0.215, -0.32], [-0.08, 0.135, -0.32]], r: 0.038, m: realHairBaseMat },
+        { pts: [[0.10, 0.34, -0.07], [0.07, 0.31, -0.21], [0.03, 0.225, -0.315], [0.02, 0.15, -0.315]], r: 0.034, m: realHairTipMat },
+        { pts: [[0.16, 0.32, -0.09], [0.15, 0.285, -0.22], [0.11, 0.21, -0.30], [0.09, 0.145, -0.30]], r: 0.030, m: realHairBaseMat }
+      ];
+      frontLocks.forEach(l => {
+        const m = makeHairLock(l.pts, l.r, l.m);
+        m.userData.isLooseHairLock = true;
+        playerHatMesh.add(m);
+      });
+
+      // Các lọn tóc chải ngược/chéo tự nhiên trên đỉnh & phía sau (nhìn đẹp rõ ràng từ camera sau)
+      const backAndTopLocks = [
+        { pts: [[-0.14, 0.32, -0.06], [-0.12, 0.34, 0.09], [-0.09, 0.24, 0.25], [-0.07, 0.11, 0.31]], r: 0.036, m: realHairBaseMat },
+        { pts: [[-0.04, 0.345, -0.05], [-0.02, 0.355, 0.10], [0.00, 0.25, 0.26], [0.00, 0.10, 0.32]], r: 0.040, m: realHairMidMat },
+        { pts: [[0.06, 0.34, -0.06], [0.08, 0.345, 0.09], [0.09, 0.24, 0.25], [0.07, 0.11, 0.31]], r: 0.036, m: realHairBaseMat },
+        { pts: [[0.15, 0.31, -0.08], [0.16, 0.31, 0.07], [0.15, 0.21, 0.23], [0.13, 0.09, 0.29]], r: 0.032, m: realHairTipMat }
+      ];
+      backAndTopLocks.forEach(l => {
+        const m = makeHairLock(l.pts, l.r, l.m);
+        m.userData.isLooseHairLock = true;
+        playerHatMesh.add(m);
+      });
+
+      // Tóc mai hai bên vuốt gọn theo viền đầu
+      const sideLocks = [
+        { pts: [[-0.22, 0.24, -0.14], [-0.27, 0.15, -0.12], [-0.29, 0.05, -0.09], [-0.28, -0.03, -0.07]], r: 0.028, m: realHairBaseMat },
+        { pts: [[0.22, 0.24, -0.14], [0.27, 0.15, -0.12], [0.29, 0.05, -0.09], [0.28, -0.03, -0.07]], r: 0.028, m: realHairBaseMat }
+      ];
+      sideLocks.forEach(l => {
+        const m = makeHairLock(l.pts, l.r, l.m);
+        m.userData.isLooseHairLock = true;
+        playerHatMesh.add(m);
+      });
+
       playerGroup.add(playerHatMesh);
 
-      const legGeo = new THREE.BoxGeometry(0.28, 0.82, 0.32);
-      playerLeftLeg = new THREE.Mesh(legGeo, pantsMat);
-      playerLeftLeg.position.set(-0.22, 0.41, 0);
-      playerLeftLeg.castShadow = true;
-      playerGroup.add(playerLeftLeg);
+      // Chân & giày sneaker kiểu Subway Surfers
+      function buildSubwayLeg(sideSign) {
+        const grp = new THREE.Group();
+        grp.material = ssPantsMat;
 
-      playerRightLeg = new THREE.Mesh(legGeo, pantsMat);
-      playerRightLeg.position.set(0.22, 0.41, 0);
-      playerRightLeg.castShadow = true;
-      playerGroup.add(playerRightLeg);
+        const thigh = new THREE.Mesh(new THREE.CapsuleGeometry(0.118, 0.16, 10, 16), ssPantsMat);
+        thigh.scale.set(1.04, 1.0, 1.10);
+        thigh.position.set(0, 0.20, 0);
+        thigh.castShadow = true;
 
-      const armGeo = new THREE.BoxGeometry(0.22, 0.72, 0.24);
-      playerLeftArm = new THREE.Mesh(armGeo, sleeveMat);
-      playerLeftArm.position.set(-0.56, 1.42, 0);
-      playerLeftArm.castShadow = true;
-      playerGroup.add(playerLeftArm);
+        const knee = new THREE.Mesh(new THREE.SphereGeometry(0.104, 14, 14), ssPantsMat);
+        knee.position.set(0, 0.06, -0.01);
 
-      playerRightArm = new THREE.Mesh(armGeo, sleeveMat);
-      playerRightArm.position.set(0.56, 1.42, 0);
-      playerRightArm.castShadow = true;
-      playerGroup.add(playerRightArm);
+        const calf = new THREE.Mesh(new THREE.CapsuleGeometry(0.098, 0.18, 10, 16), ssPantsMat);
+        calf.scale.set(0.98, 1.0, 1.04);
+        calf.position.set(0, -0.10, 0.01);
+        calf.castShadow = true;
+
+        const shoeUpper = new THREE.Mesh(new THREE.CapsuleGeometry(0.108, 0.17, 10, 16), ssShoeUpperMat);
+        shoeUpper.rotation.x = Math.PI / 2;
+        shoeUpper.scale.set(1.04, 1.0, 0.74);
+        shoeUpper.position.set(0, -0.32, -0.055);
+        shoeUpper.castShadow = true;
+
+        const shoeStripe = new THREE.Mesh(new THREE.BoxGeometry(0.230, 0.024, 0.18), ssAccentMat);
+        shoeStripe.position.set(0, -0.318, -0.05);
+
+        const shoeSole = new THREE.Mesh(new THREE.BoxGeometry(0.236, 0.036, 0.36), ssShoeSoleMat);
+        shoeSole.position.set(0, -0.370, -0.055);
+        shoeSole.castShadow = true;
+
+        grp.add(thigh, knee, calf, shoeUpper, shoeStripe, shoeSole);
+        grp.position.set(sideSign * 0.22, 0.41, 0);
+        return grp;
+      }
+      playerLeftLeg = buildSubwayLeg(-1);
+      playerRightLeg = buildSubwayLeg(1);
+      playerGroup.add(playerLeftLeg, playerRightLeg);
+
+      // Cánh tay gắn chặt vào thân áo, liền mạch từ vai -> tay áo -> bắp tay -> cẳng tay -> bàn tay
+      function buildSubwayArm(sideSign) {
+        const grp = new THREE.Group();
+        grp.material = ssSleeveMat;
+
+        const armWarmTone = new THREE.MeshStandardMaterial({ color: 0xebb98c, roughness: 0.54, metalness: 0.02 });
+
+        // 1. Gốc vai ăn sâu vào thân áo (x = -sideSign * 0.04 so với gốc nhóm ở sideSign * 0.35 -> nằm gọn bên trong thân áo)
+        const shoulderRoot = new THREE.Mesh(new THREE.SphereGeometry(0.105, 16, 14), ssSleeveMat);
+        shoulderRoot.scale.set(1.15, 0.96, 0.92);
+        shoulderRoot.position.set(-sideSign * 0.03, 0.14, 0);
+        shoulderRoot.castShadow = true;
+
+        // 2. Ống tay áo đặc kín nối liền từ vai xuống bắp tay trên
+        const sleeveCap = new THREE.Mesh(new THREE.CapsuleGeometry(0.086, 0.13, 10, 16), ssSleeveMat);
+        sleeveCap.scale.set(1.04, 1.0, 0.92);
+        sleeveCap.position.set(sideSign * 0.055, 0.075, 0);
+        sleeveCap.rotation.z = -sideSign * 0.14;
+        sleeveCap.castShadow = true;
+
+        const sleeveCuff = new THREE.Mesh(new THREE.TorusGeometry(0.087, 0.008, 10, 22), ssWhiteMat);
+        sleeveCuff.rotation.x = Math.PI / 2 - sideSign * 0.14;
+        sleeveCuff.scale.set(1.04, 0.92, 1.0);
+        sleeveCuff.position.set(sideSign * 0.072, 0.008, 0);
+
+        // 3. Bắp tay & khuỷu tay đặc kín nối liền ngay dưới ống tay áo (không hở khe)
+        const upperArmMesh = new THREE.Mesh(new THREE.CapsuleGeometry(0.074, 0.12, 10, 16), ssSkinMat);
+        upperArmMesh.scale.set(1.02, 1.0, 0.96);
+        upperArmMesh.position.set(sideSign * 0.082, -0.055, -0.002);
+        upperArmMesh.rotation.z = -sideSign * 0.10;
+        upperArmMesh.castShadow = true;
+
+        const elbowJoint = new THREE.Mesh(new THREE.SphereGeometry(0.070, 14, 14), ssSkinMat);
+        elbowJoint.scale.set(0.98, 1.0, 0.94);
+        elbowJoint.position.set(sideSign * 0.092, -0.135, -0.005);
+        elbowJoint.castShadow = true;
+
+        // 4. Cẳng tay thuôn dần về cổ tay, nối liền từ khớp khuỷu
+        const forearmPivot = new THREE.Group();
+        forearmPivot.position.set(sideSign * 0.092, -0.135, -0.005);
+        forearmPivot.rotation.x = -0.20;
+        forearmPivot.rotation.z = -sideSign * 0.05;
+
+        const forearmUpper = new THREE.Mesh(new THREE.CapsuleGeometry(0.066, 0.10, 10, 14), ssSkinMat);
+        forearmUpper.scale.set(1.04, 1.0, 0.92);
+        forearmUpper.position.set(0, -0.065, -0.008);
+        forearmUpper.castShadow = true;
+
+        const forearmLower = new THREE.Mesh(new THREE.CapsuleGeometry(0.050, 0.11, 10, 14), ssSkinMat);
+        forearmLower.scale.set(1.04, 1.0, 0.88);
+        forearmLower.position.set(0, -0.175, -0.016);
+        forearmLower.castShadow = true;
+
+        const wristJoint = new THREE.Mesh(new THREE.SphereGeometry(0.048, 12, 12), armWarmTone);
+        wristJoint.scale.set(1.06, 0.78, 0.88);
+        wristJoint.position.set(0, -0.242, -0.022);
+
+        // 5. Bàn tay nối liền cổ tay gồm lòng bàn tay, 4 ngón tay & ngón cái
+        const handPivot = new THREE.Group();
+        handPivot.position.set(0, -0.250, -0.024);
+        handPivot.rotation.x = -0.08;
+
+        const palmGeo = new THREE.SphereGeometry(0.054, 18, 16);
+        palmGeo.scale(0.84, 1.08, 0.44);
+        const palmMesh = new THREE.Mesh(palmGeo, ssSkinMat);
+        palmMesh.position.set(0, -0.042, -0.002);
+        palmMesh.castShadow = true;
+
+        const fingerSpecs = [
+          { xOff: -0.027, len: 0.052, rad: 0.011, curl: 0.24 },
+          { xOff: -0.009, len: 0.058, rad: 0.0115, curl: 0.28 },
+          { xOff:  0.009, len: 0.054, rad: 0.011, curl: 0.30 },
+          { xOff:  0.025, len: 0.042, rad: 0.0095, curl: 0.34 }
+        ];
+        fingerSpecs.forEach((f) => {
+          const fCurve = new THREE.CatmullRomCurve3([
+            new THREE.Vector3(f.xOff, -0.080, -0.004),
+            new THREE.Vector3(f.xOff * 1.03, -0.104, -0.010),
+            new THREE.Vector3(f.xOff * 1.05, -0.080 - f.len, -0.020 - f.curl * 0.03)
+          ]);
+          const fMesh = new THREE.Mesh(new THREE.TubeGeometry(fCurve, 8, f.rad, 8, false), ssSkinMat);
+          fMesh.castShadow = true;
+          handPivot.add(fMesh);
+        });
+
+        const thumbCurve = new THREE.CatmullRomCurve3([
+          new THREE.Vector3(-sideSign * 0.038, -0.042, -0.010),
+          new THREE.Vector3(-sideSign * 0.052, -0.068, -0.022),
+          new THREE.Vector3(-sideSign * 0.034, -0.092, -0.030)
+        ]);
+        const thumbMesh = new THREE.Mesh(new THREE.TubeGeometry(thumbCurve, 10, 0.013, 8, false), ssSkinMat);
+        thumbMesh.castShadow = true;
+
+        handPivot.add(palmMesh, thumbMesh);
+        forearmPivot.add(forearmUpper, forearmLower, wristJoint, handPivot);
+        grp.add(shoulderRoot, sleeveCap, sleeveCuff, upperArmMesh, elbowJoint, forearmPivot);
+
+        // Đặt gốc tay sát vào cầu vai thân áo để không bị hở khoảng cách
+        grp.position.set(sideSign * 0.35, 1.50, 0);
+        return grp;
+      }
+      playerLeftArm = buildSubwayArm(-1);
+      playerRightArm = buildSubwayArm(1);
+      playerGroup.add(playerLeftArm, playerRightArm);
 
       // Girl hair, ribbon & flared pleated skirt
       playerFemaleGroup = new THREE.Group();
@@ -5480,8 +7089,10 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       if (playerLeftLeg && playerLeftLeg.material) playerLeftLeg.material.color.set(legColor);
       if (playerRightLeg && playerRightLeg.material) playerRightLeg.material.color.set(legColor);
       if (playerHatMesh) {
-        if (playerHatMesh.material && v.hat) playerHatMesh.material.color.set(v.hat);
-        playerHatMesh.visible = !isFemale;
+        if (playerHatMesh.material && v.hat && !playerHatMesh.userData?.isNaturalHair) {
+          playerHatMesh.material.color.set(v.hat);
+        }
+        playerHatMesh.visible = !isFemale && (!outfit || (outfit.id !== "dan_quan" && outfit.id !== "quan_doi_nhan_dan" && outfit.id !== "luc_quan"));
       }
       if (playerFemaleGroup) {
         playerFemaleGroup.visible = isFemale;
@@ -6248,8 +7859,11 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
         jumpOffset: 0,
         onTrainRoof: false,
         slideTimer: 0,
+        boardFlipTimer: 0,
+        boardFlipDuration: 0.56,
         motoWheelieBoost: 0,
         tankPulseBoost: 0,
+        tankLaserFireTimer: 0,
         spawnTimer: 0.55,
         coinTimer: 1.15,
         powerupTimer: 2.0,
@@ -6348,6 +7962,7 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
     }
 
     function updateBuffHud() {
+      try { syncMobileTankFireButton(); } catch (_) {}
       if (!state || !buffBarEl) return;
       const items = [];
       for (const [key, meta] of Object.entries(POWERUP_META)) {
@@ -6620,6 +8235,7 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       } else if (type === "tank") {
         state.buffs.jetpack = 0;
         state.buffs.moto = 0;
+        state.tankLaserFireTimer = 0;
         state.slideTimer = 0;
         state.invulnTimer = Math.max(state.invulnTimer, 0.6);
         if (state.doctor) { state.doctor.chaseTimer = 0; state.doctor.retreatTimer = 0.8; state.doctor.tripSurgeTimer = 0; }
@@ -6634,19 +8250,190 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       if (!canControl()) return;
       const prev = state.lane;
       state.lane = Math.max(0, Math.min(2, state.lane + delta));
-      if (state.lane !== prev) playTone(320, "sine", 0.05, 0.05, 420);
+      if (state.lane !== prev) {
+        if (state.buffs && state.buffs.moto > 0) {
+          const isWheelieNow = Boolean((state.motoWheelieBoost || 0) > 0.05 || isHoldingPcMotoWheelie || isHoldingMobileMotoWheelie);
+          playMotoExhaustRevSfx(isWheelieNow ? 1.36 : 1.18, isWheelieNow, isMobileTouchDevice(), true);
+        } else if (state.buffs && state.buffs.tank > 0) {
+          const isFiringNow = Boolean((state.tankLaserFireTimer || 0) > 0.02 || isHoldingPcTankFire || isHoldingMobileTankFire);
+          if (isFiringNow) {
+            triggerTankShot(0.20);
+          } else {
+            state.tankPulseBoost = Math.max(state.tankPulseBoost || 0, 0.45);
+            playTone(115, "sawtooth", 0.07, 0.055, 78);
+          }
+        } else {
+          playTone(320, "sine", 0.05, 0.05, 420);
+        }
+      }
     }
+    let isHoldingMobileTankFire = false;
+    let mobileTankHoldRepeatTimer = 0;
+
+    function triggerTankShot(durationSec = 0.22) {
+      if (!state || !state.running || state.paused || pausedByModal) return false;
+      if (!state.buffs || !(state.buffs.tank > 0)) return false;
+      state.vy = 0;
+      state.jumpOffset = 0;
+      state.slideTimer = 0;
+      state.tankLaserFireTimer = durationSec;
+      state.tankPulseBoost = 1.0;
+      if (playerTankLaserMesh && playerTankLaserMesh.userData) {
+        playerTankLaserMesh.userData.zapBoost = 0.55;
+      }
+      playTankLaserSfx();
+      return true;
+    }
+
+    function stopMobileTankFire(clearBeam = true) {
+      isHoldingMobileTankFire = false;
+      mobileTankHoldRepeatTimer = 0;
+      if (clearBeam && state) {
+        state.tankLaserFireTimer = 0;
+      }
+    }
+
+    function fireTankWeapon() {
+      return triggerTankShot(0.22);
+    }
+
+    function isMobileTouchDevice() {
+      try {
+        const ua = (navigator && navigator.userAgent) ? navigator.userAgent : "";
+        const uaMobile = /Android|iPhone|iPad|iPod|Mobile|webOS|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+        const coarsePointer = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+        const touchCapable = ("ontouchstart" in window) || (navigator && navigator.maxTouchPoints > 0);
+        const narrowScreen = (window.innerWidth || screen.width || 1280) <= 899;
+        return Boolean(uaMobile || (coarsePointer && narrowScreen) || (touchCapable && narrowScreen));
+      } catch (_) {
+        return false;
+      }
+    }
+
+    const mobileTankFireBtn = document.getElementById("mobile-tank-fire-btn");
+    function syncMobileTankFireButton() {
+      try { syncMobileMotoWheelieButton(); } catch (_) {}
+      if (!mobileTankFireBtn) return;
+      const hasTank = Boolean(state && state.running && !state.paused && !pausedByModal && state.buffs && state.buffs.tank > 0);
+      const shouldShow = hasTank && isMobileTouchDevice();
+      mobileTankFireBtn.style.display = shouldShow ? "flex" : "none";
+      if (!shouldShow && isHoldingMobileTankFire) {
+        stopMobileTankFire(true);
+      }
+    }
+
+    let lastMobileTankTouchAtMs = 0;
+    function handleMobileTankPressStart(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const nowMs = performance.now();
+      if (nowMs - lastMobileTankTouchAtMs < 60) return;
+      lastMobileTankTouchAtMs = nowMs;
+      if (!state || !state.running || state.paused || pausedByModal || !state.buffs || !(state.buffs.tank > 0)) return;
+      isHoldingMobileTankFire = true;
+      mobileTankHoldRepeatTimer = 0.16;
+      triggerTankShot(0.20);
+    }
+
+    function handleMobileTankPressEnd(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      stopMobileTankFire(true);
+    }
+
+    if (mobileTankFireBtn) {
+      mobileTankFireBtn.addEventListener("pointerdown", handleMobileTankPressStart);
+      mobileTankFireBtn.addEventListener("pointerup", handleMobileTankPressEnd);
+      mobileTankFireBtn.addEventListener("pointercancel", handleMobileTankPressEnd);
+
+      mobileTankFireBtn.addEventListener("touchstart", handleMobileTankPressStart, { passive: false });
+      mobileTankFireBtn.addEventListener("touchend", handleMobileTankPressEnd, { passive: false });
+      mobileTankFireBtn.addEventListener("touchcancel", handleMobileTankPressEnd, { passive: false });
+    }
+
+    let isHoldingMobileMotoWheelie = false;
+    let mobileMotoHoldRepeatTimer = 0;
+
+    function triggerMotoWheeliePulse(boostVal = 1.0, playRev = true, isWheelie = true) {
+      if (!state || !state.running || state.paused || pausedByModal) return false;
+      if (!state.buffs || !(state.buffs.moto > 0)) return false;
+      state.vy = 0;
+      state.jumpOffset = 0;
+      state.slideTimer = 0;
+      state.motoWheelieBoost = Math.max(state.motoWheelieBoost || 0, boostVal);
+      if (playRev) {
+        playMotoExhaustRevSfx(1.36, isWheelie, isMobileTouchDevice());
+      }
+      return true;
+    }
+
+    function stopMobileMotoWheelie(resetBoost = true) {
+      isHoldingMobileMotoWheelie = false;
+      mobileMotoHoldRepeatTimer = 0;
+      if (resetBoost && state) {
+        state.motoWheelieBoost = 0;
+      }
+    }
+
+    const mobileMotoWheelieBtn = document.getElementById("mobile-moto-wheelie-btn");
+    function syncMobileMotoWheelieButton() {
+      if (!mobileMotoWheelieBtn) return;
+      const hasMoto = Boolean(state && state.running && !state.paused && !pausedByModal && state.buffs && state.buffs.moto > 0);
+      const shouldShow = hasMoto && isMobileTouchDevice();
+      mobileMotoWheelieBtn.style.display = shouldShow ? "flex" : "none";
+      if (!shouldShow && isHoldingMobileMotoWheelie) {
+        stopMobileMotoWheelie(true);
+      }
+    }
+
+    let lastMobileMotoTouchAtMs = 0;
+    function handleMobileMotoPressStart(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const nowMs = performance.now();
+      if (nowMs - lastMobileMotoTouchAtMs < 60) return;
+      lastMobileMotoTouchAtMs = nowMs;
+      if (!state || !state.running || state.paused || pausedByModal || !state.buffs || !(state.buffs.moto > 0)) return;
+      isHoldingMobileMotoWheelie = true;
+      mobileMotoHoldRepeatTimer = 0.30;
+      triggerMotoWheeliePulse(1.0, true, true);
+    }
+
+    function handleMobileMotoPressEnd(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      stopMobileMotoWheelie(true);
+    }
+
+    if (mobileMotoWheelieBtn) {
+      mobileMotoWheelieBtn.addEventListener("pointerdown", handleMobileMotoPressStart);
+      mobileMotoWheelieBtn.addEventListener("pointerup", handleMobileMotoPressEnd);
+      mobileMotoWheelieBtn.addEventListener("pointercancel", handleMobileMotoPressEnd);
+
+      mobileMotoWheelieBtn.addEventListener("touchstart", handleMobileMotoPressStart, { passive: false });
+      mobileMotoWheelieBtn.addEventListener("touchend", handleMobileMotoPressEnd, { passive: false });
+      mobileMotoWheelieBtn.addEventListener("touchcancel", handleMobileMotoPressEnd, { passive: false });
+    }
+
     function jump() {
       if (!canControl()) return;
+      const isJetpackActive = state.buffs && state.buffs.jetpack > 0;
+      const isGlidingDown = !isJetpackActive && state.jetpackLandingGlide > 0 && state.jumpOffset > 12;
+      const isFlying = isJetpackActive || isGlidingDown;
+      if (isFlying) {
+        playJetpackThrustSfx(false);
+        return;
+      }
       if (state.buffs && state.buffs.tank > 0) {
-        state.vy = 0;
-        state.jumpOffset = 0;
-        state.slideTimer = 0;
-        state.tankPulseBoost = 1.0;
-        if (playerTankLaserMesh && playerTankLaserMesh.userData) {
-          playerTankLaserMesh.userData.zapBoost = Math.max(playerTankLaserMesh.userData.zapBoost || 0, 0.42);
-        }
-        playTankLaserSfx();
+        fireTankWeapon();
         return;
       }
       if (state.buffs && state.buffs.moto > 0) {
@@ -6654,21 +8441,34 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
         state.jumpOffset = 0;
         state.slideTimer = 0;
         state.motoWheelieBoost = 1.0;
-        playMotoExhaustRevSfx(1.48);
+        playMotoExhaustRevSfx(1.36, true, isMobileTouchDevice());
         return;
       }
       if (state.jumpOffset <= 0.01) {
         state.vy = state.buffs.boots > 0 ? 890 : 635;
         state.slideTimer = 0;
-        playTone(300, "sine", 0.11, 0.07, 620);
+        if (state.buffs && state.buffs.board > 0) {
+          const flipDur = state.buffs.boots > 0 ? 0.68 : 0.56;
+          state.boardFlipDuration = flipDur;
+          state.boardFlipTimer = flipDur;
+          playTone(340, "sine", 0.14, 0.075, 760);
+        } else {
+          state.boardFlipTimer = 0;
+          playTone(300, "sine", 0.11, 0.07, 620);
+        }
       }
     }
     function slide() {
       try {
         if (!canControl()) return;
+        const isJetpackActive = state.buffs && state.buffs.jetpack > 0;
+        const isGlidingDown = !isJetpackActive && state.jetpackLandingGlide > 0 && state.jumpOffset > 12;
+        if (isJetpackActive || isGlidingDown) return;
         if (state.jumpOffset > 0.01) state.vy = -800;
-        state.slideTimer = 0.56;
-        try { playTone(280, "sawtooth", 0.09, 0.04, 150); } catch (_) {}
+        state.boardFlipTimer = 0;
+        const hasBoardNow = Boolean(state.buffs && state.buffs.board > 0 && !(state.buffs.moto > 0) && !(state.buffs.tank > 0));
+        state.slideTimer = hasBoardNow ? 0.66 : 0.56;
+        try { playTone(hasBoardNow ? 240 : 280, "sawtooth", 0.09, 0.045, 140); } catch (_) {}
       } catch (err) {
         console.error("slide() error:", err);
       }
@@ -6724,6 +8524,12 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
     pauseRestartBtn.addEventListener("click", handleRestartTrigger);
     pauseLobbyBtn.addEventListener("click", returnToLobby);
 
+    let isHoldingPcMotoWheelie = false;
+    let isHoldingPcTankFire = false;
+    function isMotoWheelieKey(code) {
+      return code === "ArrowUp" || code === "KeyW" || code === "Space";
+    }
+
     window.addEventListener("keydown", (e) => {
       if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Space"].includes(e.code)) e.preventDefault();
       if (e.code === "Escape" || e.code === "KeyP") {
@@ -6736,8 +8542,35 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       if (state && !state.running && !pausedByModal && (e.code === "Enter" || e.code === "Space")) { resetGame(); return; }
       if (e.code === "ArrowLeft" || e.code === "KeyA") moveLane(-1);
       if (e.code === "ArrowRight" || e.code === "KeyD") moveLane(1);
-      if (e.code === "ArrowUp" || e.code === "KeyW" || e.code === "Space") jump();
+      if (isMotoWheelieKey(e.code)) {
+        if (!e.repeat && state && state.buffs) {
+          if (state.buffs.moto > 0) isHoldingPcMotoWheelie = true;
+          if (state.buffs.tank > 0) {
+            isHoldingPcTankFire = true;
+            mobileTankHoldRepeatTimer = 0.16;
+          }
+        }
+        jump();
+      }
       if (e.code === "ArrowDown" || e.code === "KeyS") slide();
+    });
+
+    window.addEventListener("keyup", (e) => {
+      if (isMotoWheelieKey(e.code)) {
+        isHoldingPcMotoWheelie = false;
+        isHoldingPcTankFire = false;
+      }
+    });
+
+    window.addEventListener("blur", () => {
+      isHoldingPcMotoWheelie = false;
+      isHoldingPcTankFire = false;
+      if (typeof stopMobileMotoWheelie === "function") {
+        stopMobileMotoWheelie(false);
+      }
+      if (typeof stopMobileTankFire === "function") {
+        stopMobileTankFire(true);
+      }
     });
 
     function handleRestartTrigger(e) {
@@ -7191,7 +9024,7 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
 
     function update(dt) {
       if (!state || !state.running || state.paused || pausedByModal) return;
-      const d = (typeof dt === 'number' && Number.isFinite(dt) && dt > 0) ? Math.min(0.033, dt) : 0.016;
+      const d = (typeof dt === 'number' && Number.isFinite(dt) && dt > 0) ? Math.min(0.06, dt) : 0.016;
       dt = d;
       state.time = (state.time || 0) + d;
       try {
@@ -7254,6 +9087,7 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
         state.jetpackLandingGlide = 1.25;
         state.invulnTimer = Math.max(state.invulnTimer, 1.1);
       }
+      try { syncMobileTankFireButton(); } catch (_) {}
       if (buffStateChanged || prevJetpack > 0) {
         buffHudTimer = 0;
         updateBuffHud();
@@ -7266,7 +9100,18 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       }
 
       const targetLaneVal = LANES[state.lane];
-      state.laneX += (targetLaneVal - state.laneX) * Math.min(1, dt * 13.5);
+      const isWheelieGliding = Boolean(
+        state.buffs && state.buffs.moto > 0 &&
+        !(state.buffs.jetpack > 0) &&
+        ((state.motoWheelieBoost || 0) > 0.05 || isHoldingPcMotoWheelie || isHoldingMobileMotoWheelie)
+      );
+      const isTankFiringGliding = Boolean(
+        state.buffs && state.buffs.tank > 0 &&
+        !(state.buffs.jetpack > 0) &&
+        ((state.tankLaserFireTimer || 0) > 0.02 || isHoldingPcTankFire || isHoldingMobileTankFire)
+      );
+      const laneLerpRate = (isWheelieGliding || isTankFiringGliding) ? 16.5 : 13.5;
+      state.laneX += (targetLaneVal - state.laneX) * Math.min(1, dt * laneLerpRate);
 
       const isJetpackActive = state.buffs.jetpack > 0;
       const isGlidingDown = !isJetpackActive && state.jetpackLandingGlide > 0 && state.jumpOffset > 12;
@@ -7275,8 +9120,43 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       const hasTankActive = !isFlying && state.buffs.tank > 0;
       if (typeof state.motoWheelieBoost !== "number" || !Number.isFinite(state.motoWheelieBoost)) state.motoWheelieBoost = 0;
       if (typeof state.tankPulseBoost !== "number" || !Number.isFinite(state.tankPulseBoost)) state.tankPulseBoost = 0;
-      if (state.motoWheelieBoost > 0) state.motoWheelieBoost = Math.max(0, state.motoWheelieBoost - dt * 1.15);
-      if (state.tankPulseBoost > 0) state.tankPulseBoost = Math.max(0, state.tankPulseBoost - dt * 2.2);
+      if (typeof state.tankLaserFireTimer !== "number" || !Number.isFinite(state.tankLaserFireTimer)) state.tankLaserFireTimer = 0;
+      if (!(state.buffs && state.buffs.moto > 0)) {
+        isHoldingPcMotoWheelie = false;
+        if (isHoldingMobileMotoWheelie) stopMobileMotoWheelie(true);
+        else state.motoWheelieBoost = 0;
+      } else if (isHoldingMobileMotoWheelie) {
+        mobileMotoHoldRepeatTimer -= dt;
+        state.motoWheelieBoost = 1.0;
+        if (mobileMotoHoldRepeatTimer <= 0) {
+          mobileMotoHoldRepeatTimer = 0.30;
+          triggerMotoWheeliePulse(1.0, true, true);
+        }
+      } else if (isHoldingPcMotoWheelie && !isFlying) {
+        mobileMotoHoldRepeatTimer -= dt;
+        state.motoWheelieBoost = Math.max(state.motoWheelieBoost || 0, 1.0);
+        if (mobileMotoHoldRepeatTimer <= 0) {
+          mobileMotoHoldRepeatTimer = 0.28;
+          triggerMotoWheeliePulse(1.0, true, true);
+        }
+      } else {
+        if (state.motoWheelieBoost > 0) state.motoWheelieBoost = Math.max(0, state.motoWheelieBoost - dt * 2.6);
+      }
+      if (state.tankPulseBoost > 0) state.tankPulseBoost = Math.max(0, state.tankPulseBoost - dt * 2.4);
+      if (!(state.buffs && state.buffs.tank > 0)) {
+        isHoldingPcTankFire = false;
+        if (isHoldingMobileTankFire) stopMobileTankFire(true);
+        else state.tankLaserFireTimer = 0;
+      } else if (isHoldingMobileTankFire || (isHoldingPcTankFire && !isFlying)) {
+        mobileTankHoldRepeatTimer -= dt;
+        state.tankLaserFireTimer = Math.max(state.tankLaserFireTimer, 0.15);
+        if (mobileTankHoldRepeatTimer <= 0) {
+          mobileTankHoldRepeatTimer = 0.15;
+          triggerTankShot(0.19);
+        }
+      } else {
+        if (state.tankLaserFireTimer > 0) state.tankLaserFireTimer = Math.max(0, state.tankLaserFireTimer - dt);
+      }
       const ROOF_ALT_PX = 92;
       if (hasTankActive) {
         state.jumpOffset = 0;
@@ -7354,6 +9234,12 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       }
 
       if (state.slideTimer > 0) state.slideTimer = Math.max(0, state.slideTimer - dt);
+      if (state.boardFlipTimer > 0) {
+        state.boardFlipTimer = Math.max(0, state.boardFlipTimer - dt);
+        if (state.jumpOffset <= 0.01 && state.vy <= 0) {
+          state.boardFlipTimer = 0;
+        }
+      }
       updateDoctor(dt);
 
       // Move sleepers & roadside scenery naturally past the player like driving on a real road
@@ -7384,18 +9270,9 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
         if (spProp.mesh.position.z > 18) {
           while (spProp.mesh.position.z > 18) spProp.mesh.position.z -= 10 * 14.0;
           while (spProp.mesh.position.z < -125) spProp.mesh.position.z += 10 * 14.0;
-          const fixedX = (typeof spProp.baseX === "number" && Number.isFinite(spProp.baseX))
-            ? spProp.baseX
-            : computeSafePropX(spProp.side > 0 ? 1 : -1, i * 7 + (spProp.side > 0 ? 3 : 0), 2.4);
-          const nextSeed = (i * 7 + Math.floor(state.time || 0)) % 24 + (spProp.side > 0 ? 3 : 0);
-          const replacement = getThemePropTemplate(nextSeed, spProp.side, activeHomelandTheme || VIETNAM_HOMELAND_THEMES[0]);
-          replacement.position.set(fixedX, 0, spProp.mesh.position.z);
-          const prevMesh = spProp.mesh;
-          sceneryGroup.remove(prevMesh);
-          if (typeof disposeObject3D === "function") disposeObject3D(prevMesh);
-          sceneryGroup.add(replacement);
-          spProp.mesh = replacement;
-          spProp.baseX = fixedX;
+          if (typeof spProp.baseX === "number" && Number.isFinite(spProp.baseX)) {
+            spProp.mesh.position.x = spProp.baseX;
+          }
         }
         const isNearProp = spProp.mesh.position.z > -115;
         const anim = isNearProp && spProp.mesh.userData && spProp.mesh.userData.schoolAnim;
@@ -7403,8 +9280,24 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
           const w = nowSec * 4.5 + anim.phase;
           for (let fbIdx = 0; fbIdx < anim.flagBanners.length; fbIdx++) {
             const fb = anim.flagBanners[fbIdx];
-            fb.rotation.y = Math.sin(w) * 0.22;
-            fb.rotation.z = Math.cos(w * 0.8) * 0.05;
+            fb.rotation.y = Math.sin(w) * 0.16;
+            fb.rotation.z = Math.cos(w * 0.8) * 0.035;
+            const cGeo = fb.userData && fb.userData.clothGeo;
+            const cBaseY = fb.userData && fb.userData.clothBaseY;
+            const cBaseZ = fb.userData && fb.userData.clothBaseZ;
+            const fW = (fb.userData && fb.userData.flagWidth) || 1.44;
+            if (cGeo && cBaseY && cBaseZ && cGeo.attributes && cGeo.attributes.position) {
+              const pAttr = cGeo.attributes.position;
+              for (let vi = 0; vi < pAttr.count; vi++) {
+                const vx = pAttr.getX(vi);
+                const u = Math.max(0, Math.min(1, vx / fW));
+                const flutterZ = Math.sin(w * 2.2 - u * 5.2) * 0.065 * u;
+                const flutterY = Math.cos(w * 1.7 - u * 3.6) * 0.025 * u;
+                pAttr.setZ(vi, cBaseZ[vi] + flutterZ);
+                pAttr.setY(vi, cBaseY[vi] + flutterY);
+              }
+              pAttr.needsUpdate = true;
+            }
           }
           for (let pIdx = 0; pIdx < anim.schoolPeople.length; pIdx++) {
             const person = anim.schoolPeople[pIdx];
@@ -7479,9 +9372,12 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
           for (let wkIdx = 0; wkIdx < sAnim.walkers.length; wkIdx++) {
             const wk = sAnim.walkers[wkIdx];
             const stepSwing = Math.sin(tNight * 1.4 + wkIdx * 1.2);
+            if (typeof wk.userData._baseZ !== "number" || !Number.isFinite(wk.userData._baseZ)) {
+              wk.userData._baseZ = wk.position.z;
+            }
             if (wk.userData.legL) wk.userData.legL.rotation.x = stepSwing * 0.5;
             if (wk.userData.legR) wk.userData.legR.rotation.x = -stepSwing * 0.5;
-            wk.position.z += stepSwing * 0.008;
+            wk.position.z = wk.userData._baseZ + Math.sin(tNight * 1.4 + wkIdx * 1.2) * 0.25;
           }
           for (let drIdx = 0; drIdx < sAnim.drinkers.length; drIdx++) {
             const dr = sAnim.drinkers[drIdx];
@@ -7691,7 +9587,8 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
         }
 
         const hasTank = state.buffs.tank > 0;
-        if (hasTank && !isFlying && !obs.passed && obs.z > PLAYER_Z - 46 && obs.z < PLAYER_Z - 1.1) {
+        const isTankFiringLaser = hasTank && !isFlying && state.tankLaserFireTimer > 0;
+        if (isTankFiringLaser && !obs.passed && obs.z > PLAYER_Z - 46 && obs.z < PLAYER_Z - 1.1) {
           if (Math.abs(state.laneX - obs.laneFloat) < 0.48) {
             smashObstacleWithTank(obs, true);
             continue;
@@ -7833,24 +9730,32 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
       const isSliding = state.slideTimer > 0;
       const hasMoto = state.buffs.moto > 0;
       const hasTank = state.buffs.tank > 0;
+      const hasBoard = state.buffs.board > 0 && !hasMoto && !hasTank && !isFlying;
+      const boardFlipDur = Math.max(0.25, state.boardFlipDuration || 0.56);
+      const isBoardFlipping = hasBoard && !isSliding && (state.boardFlipTimer || 0) > 0 && state.jumpOffset > 2;
+      const boardFlipProgress = isBoardFlipping ? Math.min(1, Math.max(0, 1 - (state.boardFlipTimer / boardFlipDur))) : 0;
+      const boardFlipAngle = isBoardFlipping ? (boardFlipProgress * Math.PI * 2) : 0;
+      const isBoardProne = hasBoard && isSliding;
 
       if (scene && playerGroup && !playerGroup.parent) scene.add(playerGroup);
       if (playerGroup) {
-        const boardHover = (state.buffs.board > 0 && !hasMoto && !hasTank && !isFlying) ? (0.14 + Math.sin(state.time * 14) * 0.05) : 0;
+        const boardHover = hasBoard ? (0.14 + Math.sin(state.time * 14) * 0.05) : 0;
         const flyBob = isJetpackActive ? Math.sin(state.time * 5.2) * 0.10 : (isGlidingDown ? Math.sin(state.time * 4.5) * 0.05 : 0);
         const laneTiltFactor = state.laneX - LANES[state.lane];
         const wheelieBoost = (!isFlying && hasMoto) ? (state.motoWheelieBoost || 0) : 0;
         const tankPulse = (!isFlying && hasTank) ? (state.tankPulseBoost || 0) : 0;
         // High realistic wheelie angle (around 0.56 rad ~ 32 deg when popped, ~0.26 rad idle cruise on moto)
         const motoWheelieAngle = hasMoto && !isFlying
-          ? (0.24 + wheelieBoost * 0.34 + Math.sin(state.time * 22) * (0.012 + wheelieBoost * 0.02))
+          ? (wheelieBoost > 0.01 ? (0.24 + wheelieBoost * 0.34 + Math.sin(state.time * 22) * (0.012 + wheelieBoost * 0.02)) : 0.03)
           : 0;
         // Rear wheel stays planted on ground while nose rises smoothly around rear axle pivot
         const motoRearPivotLift = hasMoto && !isFlying ? (Math.sin(motoWheelieAngle) * 0.58) : 0;
         const tankGroundRumble = hasTank && !isFlying ? (Math.sin(state.time * 34) * (0.012 + tankPulse * 0.025)) : 0;
         const groundedPy = (hasMoto || hasTank) && !isFlying ? 0 : py;
-        playerGroup.position.set(px, groundedPy + boardHover + flyBob + motoRearPivotLift + tankGroundRumble, PLAYER_Z);
-        playerGroup.rotation.z = laneTiltFactor * (isFlying ? -0.38 : (hasMoto ? -0.22 : -0.10));
+        const boardFlipLift = isBoardFlipping ? (Math.sin(boardFlipProgress * Math.PI) * 0.55) : 0;
+        const boardProneLift = isBoardProne ? 0.12 : 0;
+        playerGroup.position.set(px, groundedPy + boardHover + flyBob + motoRearPivotLift + tankGroundRumble + boardFlipLift + boardProneLift, PLAYER_Z);
+        playerGroup.rotation.z = laneTiltFactor * (isFlying ? -0.38 : (hasMoto ? -0.22 : (hasBoard ? -0.20 : -0.10)));
         if (isFlying) {
           const pitchTarget = isJetpackActive ? 0.48 : 0.22;
           playerGroup.rotation.x = pitchTarget + Math.sin(state.time * 4.2) * 0.03;
@@ -7873,6 +9778,18 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
             playerHatMesh.rotation.x = -riderLeanBack * 0.45;
             playerHatMesh.position.set(0, 2.48 + wheelieBoost * 0.06, 0.17 + wheelieBoost * 0.14);
           }
+        } else if (isBoardProne) {
+          // Subway Surfers hoverboard duck: lie flat prone along the top of the hoverboard, looking forward
+          playerGroup.rotation.x = 0;
+          if (playerBodyMesh) { playerBodyMesh.rotation.x = -1.42; playerBodyMesh.position.set(0, 0.46, -0.10); }
+          if (playerHeadMesh) { playerHeadMesh.rotation.x = -0.35; playerHeadMesh.position.set(0, 0.64, -1.04); }
+          if (playerHatMesh) { playerHatMesh.rotation.x = -0.35; playerHatMesh.position.set(0, 0.90, -1.10); }
+        } else if (isBoardFlipping) {
+          // Full 360-degree flip spin with the hoverboard on jump!
+          playerGroup.rotation.x = boardFlipAngle;
+          if (playerBodyMesh) { playerBodyMesh.rotation.x = 0; playerBodyMesh.position.set(0, 1.32, 0); }
+          if (playerHeadMesh) { playerHeadMesh.rotation.x = 0; playerHeadMesh.position.set(0, 2.24, 0); }
+          if (playerHatMesh) { playerHatMesh.rotation.x = 0; playerHatMesh.position.set(0, 2.52, 0.03); }
         } else if (isSliding) {
           playerGroup.rotation.x = -0.85;
           if (playerBodyMesh) { playerBodyMesh.rotation.x = 0; playerBodyMesh.position.set(0, 1.32, 0); }
@@ -7911,15 +9828,18 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
             }
           }
           if (playerTankLaserMesh) {
-            playerTankLaserMesh.visible = true;
-            const ud = playerTankLaserMesh.userData || {};
-            if (ud.zapBoost > 0) ud.zapBoost = Math.max(0, ud.zapBoost - 0.02);
-            const boostMult = (ud.zapBoost > 0 ? 1.55 : 1.0) * (1 + tankPulse * 0.25);
-            const pulse = (0.9 + Math.sin(state.time * 38) * 0.32) * boostMult;
-            playerTankLaserMesh.scale.set(pulse, pulse, 1);
-            if (ud.muzzleFlash) {
-              const mScale = (0.85 + Math.abs(Math.sin(state.time * 45)) * 0.65) * boostMult;
-              ud.muzzleFlash.scale.setScalar(mScale);
+            const firingNow = Boolean(hasTank && !isFlying && state.tankLaserFireTimer > 0);
+            playerTankLaserMesh.visible = firingNow;
+            if (firingNow) {
+              const ud = playerTankLaserMesh.userData || {};
+              if (ud.zapBoost > 0) ud.zapBoost = Math.max(0, ud.zapBoost - 0.02);
+              const boostMult = (ud.zapBoost > 0 ? 1.55 : 1.0) * (1 + tankPulse * 0.25);
+              const pulse = (0.9 + Math.sin(state.time * 38) * 0.32) * boostMult;
+              playerTankLaserMesh.scale.set(pulse, pulse, 1);
+              if (ud.muzzleFlash) {
+                const mScale = (0.85 + Math.abs(Math.sin(state.time * 45)) * 0.65) * boostMult;
+                ud.muzzleFlash.scale.setScalar(mScale);
+              }
             }
           }
         } else if (hasMoto) {
@@ -7952,11 +9872,25 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
             }
           }
         } else if (state.buffs.board > 0) {
-          // Surfer / skateboard stance: staggered feet & arms out for balance
-          if (playerLeftLeg) { playerLeftLeg.rotation.x = 0.28; playerLeftLeg.rotation.z = 0.08; }
-          if (playerRightLeg) { playerRightLeg.rotation.x = -0.22; playerRightLeg.rotation.z = -0.08; }
-          if (playerLeftArm) { playerLeftArm.rotation.x = -0.2; playerLeftArm.rotation.z = 0.55 + Math.sin(state.time * 9) * 0.12; }
-          if (playerRightArm) { playerRightArm.rotation.x = -0.2; playerRightArm.rotation.z = -0.55 - Math.sin(state.time * 9) * 0.12; }
+          if (isBoardProne) {
+            // Lying flat on the hoverboard: arms gripping front rails, legs stretched back along tail
+            if (playerLeftLeg) { playerLeftLeg.rotation.x = -1.48; playerLeftLeg.rotation.z = 0.04; playerLeftLeg.position.set(-0.18, 0.34, 0.58); }
+            if (playerRightLeg) { playerRightLeg.rotation.x = -1.48; playerRightLeg.rotation.z = -0.04; playerRightLeg.position.set(0.18, 0.34, 0.58); }
+            if (playerLeftArm) { playerLeftArm.rotation.x = -1.55; playerLeftArm.rotation.z = 0.18; playerLeftArm.position.set(-0.42, 0.36, -0.78); }
+            if (playerRightArm) { playerRightArm.rotation.x = -1.55; playerRightArm.rotation.z = -0.18; playerRightArm.position.set(0.42, 0.36, -0.78); }
+          } else if (isBoardFlipping) {
+            // Mid-air 360 flip pose: knees slightly tucked, one hand grabbing board rail
+            if (playerLeftLeg) { playerLeftLeg.rotation.x = 0.55; playerLeftLeg.rotation.z = 0.10; playerLeftLeg.position.set(-0.22, 0.52, -0.06); }
+            if (playerRightLeg) { playerRightLeg.rotation.x = 0.35; playerRightLeg.rotation.z = -0.10; playerRightLeg.position.set(0.22, 0.48, 0.04); }
+            if (playerLeftArm) { playerLeftArm.rotation.x = -0.75; playerLeftArm.rotation.z = 0.35; playerLeftArm.position.set(-0.56, 1.38, -0.04); }
+            if (playerRightArm) { playerRightArm.rotation.x = 0.35; playerRightArm.rotation.z = -0.78; playerRightArm.position.set(0.56, 1.44, 0.02); }
+          } else {
+            // Surfer / skateboard stance: staggered feet & arms out for balance
+            if (playerLeftLeg) { playerLeftLeg.rotation.x = 0.28; playerLeftLeg.rotation.z = 0.08; playerLeftLeg.position.set(-0.22, 0.41, 0); }
+            if (playerRightLeg) { playerRightLeg.rotation.x = -0.22; playerRightLeg.rotation.z = -0.08; playerRightLeg.position.set(0.22, 0.41, 0); }
+            if (playerLeftArm) { playerLeftArm.rotation.x = -0.2; playerLeftArm.rotation.z = 0.55 + Math.sin(state.time * 9) * 0.12; playerLeftArm.position.set(-0.56, 1.42, 0); }
+            if (playerRightArm) { playerRightArm.rotation.x = -0.2; playerRightArm.rotation.z = -0.55 - Math.sin(state.time * 9) * 0.12; playerRightArm.position.set(0.56, 1.42, 0); }
+          }
         } else {
           if (playerLeftLeg) { playerLeftLeg.rotation.x = swing; playerLeftLeg.rotation.z = 0; playerLeftLeg.position.set(-0.22, 0.41, 0); }
           if (playerRightLeg) { playerRightLeg.rotation.x = -swing; playerRightLeg.rotation.z = 0; playerRightLeg.position.set(0.22, 0.41, 0); }
@@ -7992,11 +9926,12 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
         if (playerFemaleGroup && playerGender === "female") {
           const runWave = Math.sin(state.time * 16) * 0.08;
           if (playerSkirtMesh) {
-            playerSkirtMesh.rotation.x = isSliding ? -0.45 : (isFlying ? 0.35 : runWave);
+            playerSkirtMesh.rotation.x = isBoardProne ? -1.42 : (isSliding ? -0.45 : (isFlying ? 0.35 : runWave));
             playerSkirtMesh.rotation.z = laneTiltFactor * -0.14;
+            playerSkirtMesh.position.set(0, isBoardProne ? 0.42 : 0.92, isBoardProne ? 0.18 : 0);
           }
           if (playerHairBackMesh) {
-            playerHairBackMesh.rotation.x = isFlying ? 0.85 : (0.18 + Math.abs(runWave));
+            playerHairBackMesh.rotation.x = isBoardProne ? 0.55 : (isFlying ? 0.85 : (0.18 + Math.abs(runWave)));
             playerHairBackMesh.position.y = isFlying ? 2.05 : 1.92;
             playerHairBackMesh.position.z = isFlying ? -0.34 : -0.26;
           }
@@ -8151,7 +10086,7 @@ if (scene && !playerGroup.parent) scene.add(playerGroup);
         if (!Number.isFinite(lastTime) || lastTime <= 0 || rawTs < lastTime || (rawTs - lastTime) > 1200) {
           lastTime = rawTs;
         }
-        const dt = Math.min(0.05, Math.max(0.001, (rawTs - lastTime) / 1000));
+        const dt = Math.min(0.06, Math.max(0.001, (rawTs - lastTime) / 1000));
         lastTime = rawTs;
         if (!threeReady) {
           if (window.THREE) {
